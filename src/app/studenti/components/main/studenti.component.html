@@ -1,0 +1,17 @@
+<div class="title"><h1>Gestione Studenti</h1></div>
+<ng-container class="container">
+    <div class="buttonContainer">
+        <button mat-raised-button color="accent" class="button" (click)="openDialog()">Aggiungi Studente</button>
+    </div>
+    <div>
+        <app-table #table [displayedColumns]="displayedColumns" 
+                    [dataSource]="dataSource" 
+                    (deleteEvent)="deleteStudent($event)"
+                    (updateEvent)="openEditDialog($event)"
+                    (addClassEvent)="openAddClassDialog($event)">
+
+        </app-table>
+    </div>
+    
+
+</ng-container>

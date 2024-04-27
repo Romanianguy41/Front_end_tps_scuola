@@ -1,0 +1,24 @@
+.riga{
+    display: flex;
+    gap: 15px;
+    mat-form-field{
+        width: 100%
+    }
+
+}
+
+.content{
+    padding-top:10px ;
+}
+
+.title{
+    text-align: center;
+}
+.buttons{
+    border: 10px;
+    padding: 10px;
+    button{
+        flex: 1;
+    }
+}
+

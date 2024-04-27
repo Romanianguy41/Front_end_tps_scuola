@@ -1,0 +1,29 @@
+.filterContainer{
+    width: 70%;
+    margin:auto;
+}
+
+.riga{
+    display: flex;
+    gap: 50px;
+    mat-form-field{
+        width: 30%
+    }
+
+}
+
+
+.content{
+    padding-top:10px ;
+}
+
+.title{
+    text-align: center;
+}
+.buttons{
+    display: flex;
+    border: 10px;
+    padding: 10px;
+    justify-content: right;
+}
+

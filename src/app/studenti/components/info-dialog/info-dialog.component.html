@@ -1,0 +1,113 @@
+
+        <mat-card class="carta">
+            <mat-card-header >
+                <mat-card-title class="cartaTitolo">INFO STUDENTE</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <hr>
+                <div class="row">
+                    <div class="elements">  
+                        <span>Cognome:  </span>
+                    </div>
+                    <div class="elements">  
+                        <span class=".mat-span">{{data.cognome}}</span>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="elements">  
+                        <span>Nome:  </span>
+                    </div>
+                    <div class="elements">  
+                        <span class=".mat-span">{{data.nome}}</span>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="elements">  
+                        <span>Codice fiscale:  </span>
+                    </div>
+                    <div class="elements">  
+                        <span class=".mat-span">{{data.codiceFiscale}}</span>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="elements">  
+                        <span>Data nascita:  </span>
+                    </div>
+                    <div class="elements">  
+                        <span class=".mat-span">{{data.dataNascita|date}}</span>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="elements">  
+                        <span>Luogo nascita:  </span>
+                    </div>
+                    <div class="elements">  
+                        <span class=".mat-span">{{data.luogoNascita}}</span>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="elements">  
+                        <span>Email:  </span>
+                    </div>
+                    <div class="elements">  
+                        <span class=".mat-span">{{data.email}}</span>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="elements">  
+                        <span>Numero:  </span>
+                    </div>
+                    <div class="elements">  
+                        <span class=".mat-span">{{data.telefono}}</span>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="elements">  
+                        <span>Indirizzo:  </span>
+                    </div>
+                    <div class="elements">  
+                        <span class=".mat-span">{{data.indirizzo}}</span>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="elements">  
+                        <span>CAP:  </span>
+                    </div>
+                    <div class="elements">  
+                        <span class=".mat-span">{{data.CAP}}</span>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="elements">  
+                        <span>Cittadinanza:  </span>
+                    </div>
+                    <div class="elements">  
+                        <span class=".mat-span">{{data.cittadinanza}}</span>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="elements">  
+                        <span>Classe:  </span>
+                    </div>
+                    <div class="elements">  
+                        <div *ngIf="data.classe!=undefined; else elseBlock" class="elements">
+                            <span class=".mat-span">{{data.classe.classe}}{{data.classe.sezione}}</span>
+                        </div>
+                        <ng-template #elseBlock class="elements"><span>Nessuna classe</span></ng-template>
+                        
+                    </div>
+                </div>
+                <hr>
+                <div style="margin-bottom: 20px;"></div>
+            </mat-card-content>
+        </mat-card>

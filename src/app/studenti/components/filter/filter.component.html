@@ -1,0 +1,45 @@
+<ng-container >
+    <div class="filterContainer">
+        <form [formGroup]="formDati" (ngSubmit)="onFormSubmit()">
+        <div class="buttons">
+            <button mat-raised-button type="submit">
+                <mat-icon>search</mat-icon>
+            </button>
+        </div>
+            <div mat-dialog-content class="content">
+                <div class="riga">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Cognome</mat-label>
+                            <input matInput type="text" formControlName="cognome">
+                        </mat-form-field>
+        
+                        <mat-form-field appearance="outline" >
+                            <mat-label>Nome</mat-label>
+                            <input matInput type="text" formControlName="nome">
+                        </mat-form-field>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Codice Fiscale</mat-label>
+                            <input matInput type="text" formControlName="codiceFiscale" >
+                        </mat-form-field>
+                    
+                </div>
+                <div class="riga">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input matInput type="email" formControlName="email" >
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Classe</mat-label>
+                        <input matInput type="text" formControlName="classe">
+                    </mat-form-field
+                    >
+                    <mat-form-field appearance="outline">
+                        <mat-label>Sezione</mat-label>
+                        <input matInput type="text" formControlName="sezione">
+                    </mat-form-field>
+                </div>
+            </div>
+        </form>
+    </div>
+</ng-container>
+    
