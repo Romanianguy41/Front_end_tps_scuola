@@ -43,7 +43,7 @@ export class AddClassDialogComponent implements OnInit{
   }
 
   removeClass():void{
-    this.dialogRef.close();
+    this.dialogRef.close("remove");
   }
 
   applyFilter(event: Event) {

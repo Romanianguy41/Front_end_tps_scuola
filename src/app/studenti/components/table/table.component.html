@@ -1,5 +1,4 @@
 <div>
-  <app-filter (stringEvent)="search()"></app-filter>
    <mat-card class="tableBase">
         <mat-card-content>
           <mat-form-field>
@@ -36,7 +35,7 @@
               </ng-container>
 
               <ng-container matColumnDef="action">
-                <th mat-header-cell *matHeaderCellDef (click)="$event.stopPropagation()"> Action </th>
+                <th mat-header-cell *matHeaderCellDef (click)="$event.stopPropagation()"> </th>
                 <td mat-cell *matCellDef="let row"> 
                 <button mat-icon-button (click)="updateStudente(row)">
                   <mat-icon>edit</mat-icon>

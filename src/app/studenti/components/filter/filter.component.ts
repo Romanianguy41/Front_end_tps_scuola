@@ -11,16 +11,16 @@ import { validateHorizontalPosition } from '@angular/cdk/overlay';
   styleUrls: ['./filter.component.scss']
 })
 export class FilterComponent {
+
    searchString!: string
-onFormSubmit() {
-  console.log("premuto")
+   @Output()finalString = new EventEmitter<string>();
+  onFormSubmit() {
   let data = this.formDati.value
-  console.log(data)
   this.clearData(data)
+  this.createClasseSezioneString(data);
 
 }
   formDati: FormGroup;
-  @Output() stringEvent = new EventEmitter<string>();
   constructor(private formBuilder: FormBuilder,
     private classeService: ClasseService,
     private studentService: StudenteService
@@ -37,11 +37,8 @@ onFormSubmit() {
   
 
     clearData(data:any){
-      console.log(data)
-      console.log(data.classe);
-      (data.classe)
+      if(data.classe)
         data.classe = data.classe.trim().toLowerCase();
-      console.log(data.classe);
       if(data.nome)
         data.nome = data.nome.trim().toLowerCase();
       if(data.cognome)
@@ -50,88 +47,92 @@ onFormSubmit() {
         data.email = data.email.trim().toLowerCase();
       if(data.sezione)
         data.sezione = data.sezione.trim().toLowerCase();
-      this.createClasseSezioneString(data);
     }
 
     createClasseSezioneString(data:StudenteFilterInterface){
-      console.log("dentro");
       let localSearch = new String();
-      if(data.classe != ''){
+      if(data.classe !== '' && data.classe !== null){
         localSearch = localSearch + "classe:"+data.classe;
       }
-      if(data.sezione != ''){
-        console.log(data);
+      if(data.sezione !== '' && data.sezione !== null){
         if(localSearch != ''){
           localSearch = localSearch +";"
         }
         localSearch = localSearch + "sezione:'"+data.sezione+"'";
       }
 
-      if(localSearch === '')
-        return;
-      this.classeService.getclassiFiltered(localSearch.toString()).subscribe((value)=>{
-        console.log(value);
-        let classSearch =""
-
-        if(value.length>0){
-          classSearch = "rifClasse in (";
-          for(let i = 0; i < value.length; i++){
-            classSearch = classSearch + value[i].idClasse.toString()
-            if (i < value.length-1){
-              classSearch = classSearch + ",";
-            }
-          }
-        classSearch =classSearch + ")";
+      if(localSearch.toString() === ''){
+        this.createFullSearchString(data)
+        this.finalString.next(this.searchString);
       }
+      else{
+        this.classeService.getclassiFiltered(localSearch.toString()).subscribe((value)=>{
 
-        this.createFullSearchString(data);
-        console.log("classSearch")
-        console.log(classSearch);
-        console.log("searchString")
-        console.log(this.searchString);
+          let classSearch =""
+  
+          if(value.length>0){
+            classSearch = "$";
+            for(let i = 0; i < value.length; i++){
+              classSearch = classSearch +"rifClasse: "+value[i].idClasse.toString();
+              if (i < value.length-1){
+                classSearch = classSearch + ",";
+              }
+            }
+          classSearch =classSearch + "$";
+          }
+          else{
+            classSearch = classSearch +"rifClasse: -1";
+          }
 
-        let finalString =""
-        if(classSearch !== "")
-          finalString = classSearch
-
-        if(this.searchString !== "" && classSearch !== "")
-          finalString = finalString+";"
-
-        if(this.searchString !== "")
-          finalString = finalString+this.searchString
-
-        console.log(finalString);
-
-        this.studentService.getStudentiFiltered(finalString).subscribe((resp)=>{
-          console.log(resp)
+          this.createFullSearchString(data);
+          this.finalString.next(this.createReturnString(classSearch));
+          
         })
+      }
+      
+    }
 
-      })
+    createReturnString(classSearch:string):string{
+      let finalString =""
+      
+      if(classSearch !== "")
+        finalString = classSearch
+
+      if(this.searchString !== "" && classSearch !== "")
+        finalString = finalString+";"
+
+      if(this.searchString !== "")
+        finalString = finalString+this.searchString
+      return finalString
     }
 
     createFullSearchString(data:StudenteFilterInterface){
       this.searchString = '';
-      if(data.cognome != ''){
+      if(data.cognome !== '' && data.cognome !== null){
         this.searchString = this.searchString + "cognome:'"+data.cognome+"'";
       }
-      if(data.nome != ''){
-        if(this.searchString != ''){
+      if(data.nome !== '' && data.nome !== null){
+        if(this.searchString !== ''){
           this.searchString = this.searchString +";"
         }
         this.searchString = this.searchString + "nome:'"+data.nome+"'";
       }
-      if(data.email != ''){
-        if(this.searchString != ''){
+      if(data.email !== '' && data.email !== null){
+        if(this.searchString !== ''){
           this.searchString = this.searchString +";"
         }
         this.searchString = this.searchString + "email:'"+data.email+"'";
       }
-      if(data.codiceFiscale != ''){
-        if(this.searchString != ''){
+      if(data.codiceFiscale !=='' && data.codiceFiscale !== null){
+        if(this.searchString !== ''){
           this.searchString = this.searchString +";"
         }
         this.searchString = this.searchString + "codFiscale:'"+data.codiceFiscale+"'";
       }
+    }
+
+    clearFilter() {
+      this.finalString.next('');
     }
 
 

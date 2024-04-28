@@ -2,6 +2,9 @@
     <div class="filterContainer">
         <form [formGroup]="formDati" (ngSubmit)="onFormSubmit()">
         <div class="buttons">
+            <button mat-raised-button type="reset" (click)="clearFilter()">
+                <mat-icon>backspace</mat-icon>
+            </button>
             <button mat-raised-button type="submit">
                 <mat-icon>search</mat-icon>
             </button>

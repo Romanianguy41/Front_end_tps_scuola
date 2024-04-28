@@ -9,15 +9,23 @@
                 <mat-form-field appearance="outline">
                     <mat-label>Cognome</mat-label>
                     <input matInput type="text" formControlName="cognome">
+                    <mat-error *ngIf="formDati.get('cognome')?.invalid">
+                        Cognome <strong>richiesto</strong></mat-error>
                 </mat-form-field>
 
                 <mat-form-field appearance="outline" >
                     <mat-label>Nome</mat-label>
                     <input matInput type="text" formControlName="nome">
+                    <mat-error *ngIf="formDati.get('nome')?.invalid">
+                        Nome <strong>richiesto</strong></mat-error>
                 </mat-form-field>
+
                 <mat-form-field appearance="outline">
                     <mat-label>Codice Fiscale</mat-label>
-                    <input matInput type="text" formControlName="codiceFiscale" >
+                    <input matInput type="text" placeholder="Inserisci codice fiscale"
+                   formControlName="codiceFiscale" >
+                  <mat-error *ngIf="(codiceFiscaleControl.hasError('required'))">
+                    Codice fiscale <strong>richiesto</strong></mat-error>
                 </mat-form-field>
         </div>
         <div class="riga">
@@ -31,31 +39,45 @@
                 <input matInput [matDatepicker]="picker"  formControlName="dataNascita">
                 <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
+
+                <mat-error *ngIf="formDati.get('indirizzo')?.invalid">
+                        Data <strong>richiesta</strong></mat-error>
+                
               </mat-form-field>
         </div>
         <div class="riga">
             <mat-form-field appearance="outline">
                 <mat-label>Email</mat-label>
                 <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
-           placeholder="Ex. pat@example.com">
-      <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-        Please enter a valid email address</mat-error>
-      <mat-error *ngIf="(emailFormControl.hasError('required'))">
-        Email is <strong>required</strong></mat-error>
+           placeholder="Ex. pat@example.com" >
+        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+            Inserire un email valida</mat-error>
+        <mat-error *ngIf="(emailFormControl.hasError('required'))">
+            Email <strong>richiesta</strong></mat-error>
             </mat-form-field>
+
             <mat-form-field appearance="outline">
                 <mat-label>Telefono</mat-label>
                 <input matInput type="text" formControlName="telefono">
+                <mat-error *ngIf="!telefonoControl.hasError('required')">
+                   Telefono <strong>Non Valido</strong></mat-error>
+                <mat-error *ngIf="formDati.get('telefono')?.invalid">
+                    Telefono <strong>richiesto</strong></mat-error>
             </mat-form-field>
+            
         </div>
         <div class="riga">
             <mat-form-field appearance="outline">
                 <mat-label>Indirizzo</mat-label>
                 <input matInput type="text" formControlName="indirizzo">
+                <mat-error *ngIf="formDati.get('indirizzo')?.invalid">
+                    Indirizzo <strong>richiesto</strong></mat-error>
             </mat-form-field>
             <mat-form-field appearance="outline" >
                 <mat-label>CAP</mat-label>
                 <input matInput type="number" formControlName="CAP">
+                <mat-error *ngIf="formDati.get('CAP')?.invalid">
+                    CAP <strong>richiesto</strong></mat-error>
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>Cittadinanza</mat-label>

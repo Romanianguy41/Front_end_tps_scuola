@@ -14,17 +14,17 @@
              <table mat-table [dataSource]="dataSource" matSort>
  
                <ng-container matColumnDef="classe">
-                 <th mat-header-cell *matHeaderCellDef mat-sort-header> Cognome </th>
+                 <th mat-header-cell *matHeaderCellDef mat-sort-header> Classe </th>
                  <td mat-cell *matCellDef="let row"  > {{row.classe}} </td>
                </ng-container>
            
                <ng-container matColumnDef="sezione">
-                 <th mat-header-cell *matHeaderCellDef mat-sort-header> Nome </th>
+                 <th mat-header-cell *matHeaderCellDef mat-sort-header> Sezione </th>
                  <td mat-cell *matCellDef="let row" > {{row.sezione}} </td>
                </ng-container>
  
                <ng-container matColumnDef="action">
-                 <th mat-header-cell *matHeaderCellDef (click)="$event.stopPropagation()"> Action </th>
+                 <th mat-header-cell *matHeaderCellDef (click)="$event.stopPropagation()"> </th>
                  <td mat-cell *matCellDef="let row" > 
                  <button mat-icon-button (click)="addClass(row)">
                    <mat-icon>add</mat-icon>

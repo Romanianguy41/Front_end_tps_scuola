@@ -12,9 +12,6 @@ import { InfoDialogComponent } from '../info-dialog/info-dialog.component';
   styleUrls: ['./table.component.scss']
 })
 export class TableComponent implements AfterViewInit{
-search() {
-throw new Error('Method not implemented.');
-}
   @Input()displayedColumns!: string[];
   @Input()dataSource!: MatTableDataSource<any>;
 

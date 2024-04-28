@@ -17,5 +17,11 @@ export class AppComponent {
     this.router.navigate([`${pageName}`]);
   }
 
+  openSidebar(){
+    this.opened = !this.opened;
+    console.log("siuumm")
+  }
+  
+
 }
 

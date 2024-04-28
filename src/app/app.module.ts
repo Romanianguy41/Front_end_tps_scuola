@@ -13,7 +13,6 @@ import { MatListModule } from '@angular/material/list';
 import { StudentiModule } from './studenti/components/main/studenti.module';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { FilterComponent } from './studenti/components/filter/filter.component';
 
 @NgModule({
   declarations: [
@@ -27,11 +26,11 @@ import { FilterComponent } from './studenti/components/filter/filter.component';
     MatIconModule,
     MatButtonModule,
     MatToolbarModule,
-    MatSidenavModule,
     MatTableModule,
     MatListModule,
     StudentiModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -3,6 +3,10 @@ import { FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Valida
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { StudenteInterface } from 'src/app/interfaces/studentInterface';
 import { EmailErrorStateMatcher } from 'src/app/classes/emailError'
+import { codiceFiscaleValidator } from 'src/app/classes/codiceFiscaleError';
+import { telefonoValidator } from 'src/app/classes/telefonoError';
+import { dataFuturaValidator } from 'src/app/classes/dataError';
+import { capValidator } from 'src/app/classes/capError';
 
 
 @Component({
@@ -15,7 +19,12 @@ export class AddDialogComponent implements OnInit {
   @Output() createEvent = new EventEmitter<StudenteInterface>();
   @Output() updateEvent = new EventEmitter<StudenteInterface>();
 
-  emailFormControl = new FormControl('', [Validators.required, Validators.email]);
+  emailFormControl!:FormControl
+  codiceFiscaleControl!: FormControl
+  telefonoControl!: FormControl
+  dataControl!: FormControl
+  CAPControl!: FormControl
+
 
   matcher = new EmailErrorStateMatcher();
 
@@ -23,16 +32,23 @@ export class AddDialogComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<AddDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: StudenteInterface) {
+
+    this.emailFormControl = new FormControl(data?.email, [Validators.required, Validators.email]);
+    this.codiceFiscaleControl = new FormControl(data?.codiceFiscale,[Validators.required, codiceFiscaleValidator()])
+    this.telefonoControl = new FormControl(data?.telefono,[Validators.required, telefonoValidator()])
+    this.dataControl = new FormControl(data?.dataNascita,[Validators.required,dataFuturaValidator()])
+    this.CAPControl = new FormControl(data?.CAP,[Validators.required, capValidator()])
+
     this.formDati = this.formBuilder.group({
-      nome: '',
-      cognome: '',
-      codiceFiscale: '',
-      dataNascita: '',
+      nome: ['',Validators.required],
+      cognome: ['',Validators.required],
+      codiceFiscale: this.codiceFiscaleControl,
+      dataNascita: this.dataControl,
       luogoNascita: '',
-      email: '',
-      telefono: '',
-      indirizzo: '',
-      CAP: '',
+      email: this.emailFormControl,
+      telefono: this.telefonoControl,
+      indirizzo: ['',Validators.required],
+      CAP: this.CAPControl,
       cittadinanza: ''
 
     })

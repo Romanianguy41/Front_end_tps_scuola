@@ -4,6 +4,7 @@
         <button mat-raised-button color="accent" class="button" (click)="openDialog()">Aggiungi Studente</button>
     </div>
     <div>
+        <app-filter (finalString)="onFilterResearch($event)"></app-filter>
         <app-table #table [displayedColumns]="displayedColumns" 
                     [dataSource]="dataSource" 
                     (deleteEvent)="deleteStudent($event)"

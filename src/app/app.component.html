@@ -1,25 +1,31 @@
 <mat-toolbar class="toolbar">
-  <button mat-icon-button (click)="this.opened = !this.opened">
-    <mat-icon>menu</mat-icon>
-  </button>
-  <span>Scuola</span>
-  <span></span>
-  <button mat-icon-button routerLink="/" >
-    <mat-icon>home</mat-icon>
-  </button>
-</mat-toolbar>
+  
+    <button mat-icon-button (click)="openSidebar()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>Scuola</span>
+    <span></span>
+    <button mat-icon-button routerLink="/" >
+      <mat-icon>home</mat-icon>
+    </button>
+  </mat-toolbar>
 
-<mat-sidenav-container class="sidenavContainer">
-  <mat-sidenav class="sidenav" mode="side" [(opened)]="opened" >
-    <mat-nav-list>
-      <a mat-list-item routerLink="/studenti">Studenti</a>
-      <a mat-list-item routerLink="/professori">Professori</a>
-      <a mat-list-item routerLink="/classi">Classi</a>
-    </mat-nav-list>
-  </mat-sidenav>
-  <mat-sidenav-content class="sidenavContet">
-  </mat-sidenav-content>
+  
+  <div class="main"> 
+  <mat-sidenav-container class="sidenavContainer">
+    <mat-sidenav class="sidenav" mode="side" [(opened)]="opened" >
+      <mat-nav-list>
+        <a mat-list-item routerLink="/studenti">Studenti</a>
+        <a mat-list-item routerLink="/professori">Professori</a>
+        <a mat-list-item routerLink="/classi">Classi</a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content class="sidenavContet">
+    </mat-sidenav-content>
 
 
-</mat-sidenav-container>
-<router-outlet></router-outlet>
+  </mat-sidenav-container>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div> 
+</div> 
