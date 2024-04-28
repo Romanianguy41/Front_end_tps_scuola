@@ -10,6 +10,7 @@ export class AppComponent {
   
     opened: boolean = false;
     showFiller = false;
+    mobileQuery: MediaQueryList | undefined;
 
   constructor(private router:Router){}
 

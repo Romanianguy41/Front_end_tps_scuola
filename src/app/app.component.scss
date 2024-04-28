@@ -2,7 +2,8 @@
     background-color:#2E4F4F ;
 }
 .sidenavContainer{
-    height: auto;
+    height: calc(207vh - 115vh);
+    position: fixed;
     margin-right: 20px;
 }
 .sidenav{
@@ -18,8 +19,5 @@
 }
 .sidenavElement{
     margin: 20px;
-   // width: 100%;
-}
-.main{
-    display: flex;
+   // width: 100%;
 }
