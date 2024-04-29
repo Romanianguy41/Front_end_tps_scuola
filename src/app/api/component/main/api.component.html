@@ -1,0 +1,167 @@
+<div class="title"><h1>API</h1></div>
+<ng-container>
+<div class="container">
+    <div class="dropDownMenu">
+        <mat-accordion>
+            <mat-expansion-panel>
+            <mat-expansion-panel-header class="testata">
+                <mat-panel-title>
+                    <strong>Student API</strong>
+                </mat-panel-title>
+                <mat-panel-description>
+                    All API that interact with the students
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+        
+            <div class="dropDownMenu">
+            <mat-accordion >
+                <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <span class="methodGET">GET </span> webapi/scuola/studente
+                    </mat-panel-title>
+                    <mat-panel-description>
+                    Get all students
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <hr>
+                <p>This API request return all the students in the database</p>
+                <hr>
+                <div><p class="underline">Parameters:</p></div>
+                <div>No parameters</div>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </div>
+        <div class="dropDownMenu">
+        <mat-accordion class="dropDownMenu">
+            <mat-expansion-panel>
+            <mat-expansion-panel-header class="testata">
+                <mat-panel-title>
+                    <span class="methodGET">GET </span> webapi/scuola/studente/filtred
+                </mat-panel-title>
+                <mat-panel-description>
+                Get filtred students
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <hr>
+                <p>This API request return all the students in the database that matches the search querry</p>
+            <hr>
+            <div><p class="underline">Parameters:</p></div>
+            <div>Query params: <span >search</span>
+            
+            </div>
+            <div class="description">   
+                <p>Description</p>
+            </div><div style="margin-bottom: 10px;">
+                <span class="tab">search: key value pair, using<span class="space"></span> </span> <strong> '<span class="space"></span> ' </strong><span class="space"></span><span> characters for string elements</span>
+            </div>
+            <div><p>Example:<p class="tab"> search=nome:'francesco'</p><p class="tab"> where <i>nome</i> is the key and <i>'francesco'</i> is the value</p></div>
+            </mat-expansion-panel>
+        </mat-accordion>
+        </div>
+        <div class="dropDownMenu">
+            <mat-accordion class="dropDownMenu">
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <span class="methodPOST">POST </span> webapi/scuola/studente
+                </mat-panel-title>
+                <mat-panel-description>
+                    Create new student
+                </mat-panel-description>
+                </mat-expansion-panel-header>
+                <hr>
+                <p>This API will add a new student to the DB</p>
+                <hr>
+                <div><p class="underline">Parameters:</p></div>
+                <div>No parameters</div>
+                <hr>
+                <div><p class="underline">Body:</p></div>
+                <div>The data of the relative student</div>
+                <div style="margin-top: 10px;"><p>body example:</p></div>
+                <div class="json"> 
+<pre>
+
+    {{'{
+        "cognome": "Rizzo",
+        "nome": "Nicolas",
+        "codiceFiscale": "RZZNLS05R13B832L",
+        "dataNascita": "2005-10-13",
+        "luogoNascita": "Carrara",  
+        "email": "rizzo@gmail.com",
+        "numeroTelefono": "+39 392 532 5938",
+        "indirizzo": "via vittorio veneto nei monti",
+        "CAP": 55054,
+        "cittadinanza": "Italiana"
+    }'}}
+    </pre>
+                </div>
+
+            </mat-expansion-panel>
+            </mat-accordion>
+        </div>
+        <div class="dropDownMenu">
+            <mat-accordion class="dropDownMenu">
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <span class="methodPUT">PUT </span> webapi/scuola/studente
+                </mat-panel-title>
+                <mat-panel-description>
+                    Update a student
+                </mat-panel-description>
+                </mat-expansion-panel-header>
+                <hr>
+                <p>This API request return all the students in the database that matches the search querry</p>
+                <hr>
+                <h4>Query params: </h4>
+                <p>search</p> <pre>key value pair, using ' ' for string elements</pre><br>
+                    <pre>   example: string=nome:'ionut'</pre> <pre>where <strong>nome</strong> is the key and <strong>'ionut'</strong> is the value</pre>
+            </mat-expansion-panel>
+            </mat-accordion>
+        </div>
+        <div class="dropDownMenu">
+            <mat-accordion class="dropDownMenu">
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <span class="methodPUT">PUT </span> webapi/scuola/studente/classe
+                </mat-panel-title>
+                <mat-panel-description>
+                    Remove student class
+                </mat-panel-description>
+                </mat-expansion-panel-header>
+                <hr>
+                <p>This API request return all the students in the database that matches the search querry</p>
+                <hr>
+                <h4>Query params: </h4>
+                <p>search</p> <pre>key value pair, using ' ' for string elements</pre><br>
+                    <pre>   example: string=nome:'ionut'</pre> <pre>where <i>nome</i> is the key and <i>'ionut'</i> is the value</pre>
+            </mat-expansion-panel>
+            </mat-accordion>
+        </div>
+        <div class="dropDownMenu">
+            <mat-accordion class="dropDownMenu">
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <span class="methodDELETE">DELETE </span> webapi/scuola/studente/{{'{idStudente}'}}
+                </mat-panel-title>
+                <mat-panel-description>
+                    Delete a student
+                </mat-panel-description>
+                </mat-expansion-panel-header>
+                <hr>
+                <p>This API request return all the students in the database that matches the search querry</p>
+                <hr>
+                <h4>Query params: </h4>
+                <p>search</p> <pre>key value pair, using ' ' for string elements</pre><br>
+                    <pre>   example: string=nome:'ionut'</pre> <pre>where <strong>nome</strong> is the key and <strong>'ionut'</strong> is the value</pre>
+            </mat-expansion-panel>
+            </mat-accordion>
+        </div>
+        </mat-expansion-panel>
+     </mat-accordion>
+    </div> 
+</div>
+</ng-container>
