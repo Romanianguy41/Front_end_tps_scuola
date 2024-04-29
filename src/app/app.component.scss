@@ -1,10 +1,17 @@
 .toolbar{
     background-color:#2E4F4F ;
 }
+
 .sidenavContainer{
     height: calc(207vh - 115vh);
     position: fixed;
     margin-right: 20px;
+}
+.sidenav{
+    width: 200px;
+    background-color:hwb(180 15% 75%);
+    margin-right: 20px;
+
 }
 .sidenav{
     width: 200px;
@@ -14,10 +21,22 @@
 }
 .sidenavContet{
     background-color:#2C3333;
+    width: 1530px;
     margin: 0;
+    min-width: auto;
+    
+}
+.sidenavContet{
+    background-color:#2C3333;
+    width: 1535px;
+    margin: 0;
+    min-width: auto;
     
 }
 .sidenavElement{
     margin: 20px;
-   // width: 100%;
+}
+
+::ng-deep .mat-drawer-backdrop.mat-drawer-shown{
+    background-color:rgba(23, 41, 41, 0.6)
 }

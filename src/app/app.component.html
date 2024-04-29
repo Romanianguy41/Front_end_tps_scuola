@@ -5,19 +5,20 @@
     </button>
     <span>Scuola</span>
     <span></span>
-    <button mat-icon-button routerLink="/" >
+    <button mat-icon-button (click)="goToPage('')" >
       <mat-icon>home</mat-icon>
     </button>
   </mat-toolbar>
 
   
   <div class="main"> 
-  <mat-sidenav-container class="sidenavContainer">
-    <mat-sidenav class="sidenav" mode="side" [(opened)]="opened" >
+  <mat-sidenav-container class="sidenavContainer" [hasBackdrop]="true" >
+    <mat-sidenav class="sidenav" mode="over" [(opened)]="opened">
       <mat-nav-list>
-        <a mat-list-item routerLink="/studenti">Studenti</a>
-        <a mat-list-item routerLink="/professori">Professori</a>
-        <a mat-list-item routerLink="/classi">Classi</a>
+        <a mat-list-item (click)="goToPage('studenti')">Studenti</a>
+        <a mat-list-item (click)="goToPage('professori')">Professori</a>
+        <a mat-list-item (click)="goToPage('classi')">Classi</a>
+        <a mat-list-item (click)="goToPage('api')">API</a>
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content class="sidenavContet">
@@ -28,4 +29,5 @@
 
 
   </mat-sidenav-container>
+  
 </div> 

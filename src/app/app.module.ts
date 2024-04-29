@@ -13,6 +13,7 @@ import { MatListModule } from '@angular/material/list';
 import { StudentiModule } from './studenti/components/main/studenti.module';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { APIModule } from './api/component/main/api.module';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatListModule,
     StudentiModule,
     HttpClientModule,
-    MatSidenavModule
+    MatSidenavModule,
+    APIModule
   ],
   providers: [],
   bootstrap: [AppComponent]

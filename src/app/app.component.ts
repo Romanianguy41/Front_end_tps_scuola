@@ -16,11 +16,11 @@ export class AppComponent {
 
   goToPage(pageName:string):void{
     this.router.navigate([`${pageName}`]);
+    this.openSidebar();
   }
 
   openSidebar(){
     this.opened = !this.opened;
-    console.log("siuumm")
   }
   
 
