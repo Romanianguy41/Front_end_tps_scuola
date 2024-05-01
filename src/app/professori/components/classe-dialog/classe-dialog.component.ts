@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Inject, OnInit, Output, ViewChild } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -10,6 +10,8 @@ import { ProfessoriService } from '../../service/professori-service.service';
 import { InsegnaService } from 'src/app/insegna/service/insegna.service';
 import { ProfessoreInterface } from 'src/app/interfaces/professorInterface';
 import { InsegnaInterface } from 'src/app/interfaces/insegnaInterface';
+import { AddDialogComponent } from 'src/app/studenti/components/add-dialog/add-dialog.component';
+import { AddClassProfessorDialogComponent } from '../add-class-professor-dialog/add-class-professor-dialog.component';
 
 @Component({
   selector: 'classe-dialog-class',
@@ -26,8 +28,7 @@ export class ClasseDialogComponent implements OnInit{
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private classeService:ClasseService,
-    private professoreService:ProfessoriService,
+  constructor(private dialog: MatDialog,
     private insegnaService: InsegnaService,
     @Inject(MAT_DIALOG_DATA) public data: ProfessoreInterface,
     public dialogRef: MatDialogRef<ClasseDialogComponent>
@@ -54,16 +55,32 @@ export class ClasseDialogComponent implements OnInit{
   }
 
   addClass(){
-    this.addClassEvent.next(this.data); 
+    console.log("rizzo")
+    let dialogRef = this.dialog.open(AddClassProfessorDialogComponent);
+    dialogRef.afterClosed().subscribe()
   }
 
   applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }
+    const filterValue = (event.target as HTMLInputElement).value.trim().toLowerCase();
+    this.dataSource.filterPredicate = (data: InsegnaInterface, filter: string) => {
+      const classeAsString = data.classe.classe?.toString().toLowerCase();
+      const sezione = data.classe.sezione?.toLowerCase();
+      const materia = data.materia.toLowerCase();
+      if (classeAsString && sezione) {
+        if(classeAsString.includes(filter)){
+          console.log(classeAsString.includes(filter))
+          console.log(classeAsString)
+          return true
+        }
+        if(sezione.includes(filter) ||  materia.includes(filter))
+          return true
+      }
+      return false;
+    };
+    this.dataSource.filter = filterValue;
   }
+  
+  
 
 
 }

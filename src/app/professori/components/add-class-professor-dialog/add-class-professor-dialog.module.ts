@@ -8,13 +8,13 @@ import { MatInputModule } from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field'
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { ClasseDialogComponent } from './classe-dialog.component';
-import { AddClassProfessorDialogModule } from '../add-class-professor-dialog/add-class-professor-dialog.module';
+import { AddClassProfessorDialogComponent } from './add-class-professor-dialog.component';
+import {MatSelectModule} from '@angular/material/select';
 
 
 @NgModule({
   declarations: [
-    ClasseDialogComponent,
+    AddClassProfessorDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,10 +26,9 @@ import { AddClassProfessorDialogModule } from '../add-class-professor-dialog/add
     MatInputModule,
     MatFormFieldModule,
     MatIconModule,
-    AddClassProfessorDialogModule
-    
+    MatSelectModule
   ],
-  exports: [ClasseDialogComponent],
+  exports: [AddClassProfessorDialogComponent],
   providers: []
 })
-export class  ClassDialogModule{ }
+export class  AddClassProfessorDialogModule{ }

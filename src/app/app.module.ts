@@ -15,10 +15,11 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { APIModule } from './api/component/main/api.module';
 import { ProfessoriModule } from './professori/components/main/professori.module';
+import { AddClassProfessorDialogComponent } from './professori/components/add-class-professor-dialog/add-class-professor-dialog.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,

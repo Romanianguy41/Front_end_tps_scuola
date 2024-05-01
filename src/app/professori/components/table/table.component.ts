@@ -64,6 +64,7 @@ export class TableComponent implements AfterViewInit{
   }
 
   addClass(professore:ProfessoreInterface) {
+    this.addSpecs();
     this.viewClassEvent.next(professore);
   }
 
