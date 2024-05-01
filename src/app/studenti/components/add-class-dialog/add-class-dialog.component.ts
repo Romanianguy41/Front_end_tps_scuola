@@ -22,7 +22,6 @@ export class AddClassDialogComponent implements OnInit{
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(private classeService:ClasseService,
-    private studentService:StudenteService,
     @Inject(MAT_DIALOG_DATA) public data: StudenteInterface,
     public dialogRef: MatDialogRef<AddClassDialogComponent>
   ){

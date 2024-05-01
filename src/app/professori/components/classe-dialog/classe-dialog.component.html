@@ -1,8 +1,8 @@
 <div>
     <mat-card class="tableBase">
         <div class="buttonContainer">
-            <button mat-raised-button class="button" (click)="removeClass()">
-                    Rimuovi classe
+            <button mat-raised-button class="button" (click)="addClass()">
+                    Aggiungi classe
             </button>
         </div>
          <mat-card-content><mat-form-field class="filter">
@@ -15,19 +15,24 @@
  
                <ng-container matColumnDef="classe">
                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Classe </th>
-                 <td mat-cell *matCellDef="let row"  > {{row.classe}} </td>
+                 <td mat-cell *matCellDef="let row"  > {{row.classe.classe}} </td>
                </ng-container>
            
                <ng-container matColumnDef="sezione">
                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Sezione </th>
-                 <td mat-cell *matCellDef="let row" > {{row.sezione}} </td>
+                 <td mat-cell *matCellDef="let row" > {{row.classe.sezione}} </td>
                </ng-container>
+
+               <ng-container matColumnDef="materia">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Materia </th>
+                <td mat-cell *matCellDef="let row" > {{row.materia}} </td>
+              </ng-container>
  
                <ng-container matColumnDef="action">
                  <th mat-header-cell *matHeaderCellDef (click)="$event.stopPropagation()"> </th>
                  <td mat-cell *matCellDef="let row" > 
-                 <button mat-icon-button (click)="addClass(row)">
-                   <mat-icon>add</mat-icon>
+                 <button mat-icon-button (click)="removeClass(row)" color="warn">
+                   <mat-icon>delete</mat-icon>
                  </button>
                  </td>
                </ng-container>

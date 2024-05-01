@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ProfessoreInterface } from 'src/app/interfaces/professorInterface';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { AddDialogComponent } from 'src/app/studenti/components/add-dialog/add-dialog.component';
+import { ClasseDialogComponent } from '../classe-dialog/classe-dialog.component';
 
 @Component({
   selector: 'app-professori',
@@ -87,7 +88,7 @@ export class ProfessoriComponent {
     });
   }
   viewClass(professoreInterface:ProfessoreInterface){
-
+    let dialogRef = this.dialog.open(ClasseDialogComponent, { data:professoreInterface });
   }
 
 }

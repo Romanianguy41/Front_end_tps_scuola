@@ -10,6 +10,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field'
 import { MatIconModule } from '@angular/material/icon';
 import { ProfessorInfoDialogModule } from '../info-dialog/info-dialog.module';
+import { ClassDialogModule } from '../classe-dialog/classe-dialog.module';
 
 @NgModule({
     declarations: [
@@ -27,7 +28,8 @@ import { ProfessorInfoDialogModule } from '../info-dialog/info-dialog.module';
         MatInputModule,
         MatFormFieldModule,
         MatIconModule,
-        ProfessorInfoDialogModule
+        ProfessorInfoDialogModule,
+        ClassDialogModule
     ]
 })
 export class TableProfessoriModule { }
