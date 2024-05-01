@@ -54,7 +54,7 @@ export class ClasseDialogComponent implements OnInit{
   }
 
   addClass(){
-    this.addClassEvent.next(this.data);
+    this.addClassEvent.next(this.data); 
   }
 
   applyFilter(event: Event) {
