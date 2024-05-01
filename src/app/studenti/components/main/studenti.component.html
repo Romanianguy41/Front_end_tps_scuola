@@ -3,9 +3,9 @@
     <div class="buttonContainer">
         <button mat-raised-button color="accent" class="button" (click)="openDialog()">Aggiungi Studente</button>
     </div>
-    <div>
+    <div class="tabella">
         <app-filter (finalString)="onFilterResearch($event)"></app-filter>
-        <app-table #table [displayedColumns]="displayedColumns" 
+        <app-table  #table [displayedColumns]="displayedColumns" 
                     [dataSource]="dataSource" 
                     (deleteEvent)="deleteStudent($event)"
                     (updateEvent)="openEditDialog($event)"

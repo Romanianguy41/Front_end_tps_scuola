@@ -11,5 +11,6 @@ export class Professore {
     indirizzo: string|undefined;
     CAP: number|undefined;
     cittadinanza: string|undefined;
+    telefono: string|undefined;
     insegna: ClasseMateria[]|undefined;
   }

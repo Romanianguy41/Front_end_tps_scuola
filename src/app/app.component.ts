@@ -16,8 +16,9 @@ export class AppComponent {
 
   goToPage(pageName:string):void{
     this.router.navigate([`${pageName}`]);
-    this.openSidebar();
-  }
+    if(this.opened)
+      this.openSidebar();
+    }
 
   openSidebar(){
     this.opened = !this.opened;

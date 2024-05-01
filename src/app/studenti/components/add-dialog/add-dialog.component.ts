@@ -16,23 +16,24 @@ import { capValidator } from 'src/app/classes/capError';
 })
 export class AddDialogComponent implements OnInit {
 
-  @Output() createEvent = new EventEmitter<StudenteInterface>();
-  @Output() updateEvent = new EventEmitter<StudenteInterface>();
+  @Output() createEvent = new EventEmitter<any>();
+  @Output() updateEvent = new EventEmitter<any>();
 
   emailFormControl!:FormControl
   codiceFiscaleControl!: FormControl
   telefonoControl!: FormControl
   dataControl!: FormControl
   CAPControl!: FormControl
-
+  @Input()type!:string
 
   matcher = new EmailErrorStateMatcher();
 
   formDati: FormGroup;
   constructor(private formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<AddDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: StudenteInterface) {
-
+    @Inject(MAT_DIALOG_DATA) public data: any) {
+      console.log("dialog")
+      console.log(data)
     this.emailFormControl = new FormControl(data?.email, [Validators.required, Validators.email]);
     this.codiceFiscaleControl = new FormControl(data?.codiceFiscale,[Validators.required, codiceFiscaleValidator()])
     this.telefonoControl = new FormControl(data?.telefono,[Validators.required, telefonoValidator()])

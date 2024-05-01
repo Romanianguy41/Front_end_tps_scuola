@@ -36,10 +36,10 @@ export class StudenteService {
     return this.http.put<StudenteInterface>(this.host+"studente",studente);
   }
 
-  removeClasseStudente(data:StudenteInterface):Observable<StudenteInterface>{
-    let studente = JSON.stringify(data).toString();
-    console.log(studente);
-    return this.http.put<StudenteInterface>(this.host+"studente/classe",studente);
+  removeClasseStudente(idStudente:string):Observable<StudenteInterface>{
+    console.log(idStudente);
+    console.log(this.host+"studente/classe/"+idStudente);
+    return this.http.put<StudenteInterface>(this.host+"studente/classe/"+idStudente,null);
   }
 
 }

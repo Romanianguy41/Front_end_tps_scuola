@@ -14,6 +14,7 @@ import { StudentiModule } from './studenti/components/main/studenti.module';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { APIModule } from './api/component/main/api.module';
+import { ProfessoriModule } from './professori/components/main/professori.module';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { APIModule } from './api/component/main/api.module';
     StudentiModule,
     HttpClientModule,
     MatSidenavModule,
-    APIModule
+    APIModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

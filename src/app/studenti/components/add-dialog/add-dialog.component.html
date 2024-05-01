@@ -1,7 +1,7 @@
 <ng-container>
-<div mat-dialog-title>
-    <div *ngIf="data!=undefined; else elseBlock" class="title"><h1>Modifica Studente</h1></div>
-    <ng-template #elseBlock><h1>Inserisci Studente</h1></ng-template>
+<div mat-dialog-title class="title">
+    <div *ngIf="data!=undefined; else elseBlock" ><h1>Modifica dati</h1></div>
+    <ng-template #elseBlock ><h1>Inserisci dati</h1></ng-template>
 </div>
     <form [formGroup]="formDati" (ngSubmit)="onFormSubmit()">
     <div mat-dialog-content class="content">

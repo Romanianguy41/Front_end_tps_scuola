@@ -1,11 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { AddDialogComponent } from '../add-dialog/add-dialog.component';
 import { StudenteService } from '../../service/studenteService';
 import { StudenteInterface } from 'src/app/interfaces/studentInterface';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { AddClassDialogComponent } from '../add-class-dialog/add-class-dialog.component';
 import { ClasseInterface } from 'src/app/interfaces/classeInterface';
+import { DialogConfig } from '@angular/cdk/dialog';
 
 @Component({
   selector: 'app-studenti',
@@ -87,9 +88,10 @@ export class StudentiComponent implements OnInit {
   openAddClassDialog(data:StudenteInterface){
     let dialogRef = this.dialog.open(AddClassDialogComponent, { data });
     dialogRef.afterClosed().subscribe((val: StudenteInterface | string) => {
+      console.log(val)
       if (typeof val === 'string') {
         if (val === "remove") {
-          this.studentService.removeClasseStudente(data).subscribe(() => {
+          this.studentService.removeClasseStudente(data.idStudente.toString()).subscribe(() => {
             this.getStudenti();
           });
         }

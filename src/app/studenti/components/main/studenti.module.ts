@@ -24,7 +24,8 @@ import { FilterModule } from '../filter/add-dialog-module';
         InfoDialogModule,
         AddClassDialogModule,
         TableModule,
-        FilterModule
+        FilterModule,
+        InfoDialogModule
     ]
 })
 export class StudentiModule { }

@@ -44,7 +44,7 @@
                 </mat-panel-description>
             </mat-expansion-panel-header>
             <hr>
-                <p>This API request return all the students in the database that matches the search querry</p>
+                <p>This API request return all the students in the database that match the search querry</p>
             <hr>
             <div><p class="underline">Parameters:</p></div>
             <div>Query params: <span >search</span>
@@ -81,7 +81,7 @@
                 <div style="margin-top: 10px;"><p>body example:</p></div>
                 <div class="json"> 
 <pre>
-
+    
     {{'{
         "cognome": "Rizzo",
         "nome": "Nicolas",
@@ -112,11 +112,36 @@
                 </mat-panel-description>
                 </mat-expansion-panel-header>
                 <hr>
-                <p>This API request return all the students in the database that matches the search querry</p>
+                <p>This API request will update a student in the database</p>
                 <hr>
-                <h4>Query params: </h4>
-                <p>search</p> <pre>key value pair, using ' ' for string elements</pre><br>
-                    <pre>   example: string=nome:'ionut'</pre> <pre>where <strong>nome</strong> is the key and <strong>'ionut'</strong> is the value</pre>
+                <div><p class="underline">Parameters:</p></div>
+                <div>No parameters</div>
+                <hr>
+                <div><p class="underline">Body:</p></div>
+                <div>The data of the relative student</div>
+                <div style="margin-top: 10px;"><p>body example:</p></div>
+                <div class="json"> 
+<pre>
+
+    {{'{
+        "cognome": "Rizzo",
+        "nome": "Nicolas",
+        "codiceFiscale": "RZZNLS05R13B832L",
+        "dataNascita": "2005-10-13",
+        "luogoNascita": "Carrara",  
+        "email": "s.nicolas.rizzo@gmail.com",
+        "numeroTelefono": "+39 392 532 5938",
+        "classe": {
+            "idClasse": 1,
+            "classe": 5,
+            "sezione": "CIF"
+        },
+        "indirizzo": "via vittorio veneto",
+        "CAP": 55054,
+        "cittadinanza": "Italiana"
+    }'}}
+    </pre>
+                </div>
             </mat-expansion-panel>
             </mat-accordion>
         </div>
@@ -124,19 +149,28 @@
             <mat-accordion class="dropDownMenu">
             <mat-expansion-panel>
                 <mat-expansion-panel-header>
-                <mat-panel-title>
-                    <span class="methodPUT">PUT </span> webapi/scuola/studente/classe
+                    <mat-panel-title>
+                    <span class="methodPUT">PUT </span> webapi/scuola/studente/classe/{{'{idStudente}'}}
                 </mat-panel-title>
                 <mat-panel-description>
-                    Remove student class
+                    Remove a student from a class
                 </mat-panel-description>
                 </mat-expansion-panel-header>
                 <hr>
-                <p>This API request return all the students in the database that matches the search querry</p>
+                <p>This API request will remove the student from the current class</p>
                 <hr>
-                <h4>Query params: </h4>
-                <p>search</p> <pre>key value pair, using ' ' for string elements</pre><br>
-                    <pre>   example: string=nome:'ionut'</pre> <pre>where <i>nome</i> is the key and <i>'ionut'</i> is the value</pre>
+                <div><p class="underline">Parameters:</p></div>
+                <div>Path params: <span >idStudente</span>
+                
+                </div>
+                <div class="description">   
+                    <p>Description</p>
+                </div><div style="margin-bottom: 10px;">
+                    <span class="tab">To use this API you need to pass in the URL the studentID in this way you can remove his current class</span>
+                </div>
+                <hr>
+                <div><p class="underline">Body:</p></div>
+                <div>No body</div>
             </mat-expansion-panel>
             </mat-accordion>
         </div>
@@ -152,11 +186,20 @@
                 </mat-panel-description>
                 </mat-expansion-panel-header>
                 <hr>
-                <p>This API request return all the students in the database that matches the search querry</p>
+                <p>This API request removes from the database the user that match the idStudente</p>
                 <hr>
-                <h4>Query params: </h4>
-                <p>search</p> <pre>key value pair, using ' ' for string elements</pre><br>
-                    <pre>   example: string=nome:'ionut'</pre> <pre>where <strong>nome</strong> is the key and <strong>'ionut'</strong> is the value</pre>
+                <div><p class="underline">Parameters:</p></div>
+                <div>Path params: <span >idStudente</span>
+                
+                </div>
+                <div class="description">   
+                    <p>Description</p>
+                </div><div style="margin-bottom: 10px;">
+                    <span class="tab">To use this API you need to pass in the URL the studentID in this way you can delete the student</span>
+                </div>
+                <hr>
+                <div><p class="underline">Body:</p></div>
+                <div>No body</div>
             </mat-expansion-panel>
             </mat-accordion>
         </div>
