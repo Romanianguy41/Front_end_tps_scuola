@@ -1,0 +1,28 @@
+
+.dialog{
+    overflow-y: hidden;  
+}
+.title{
+    h1{
+        color: aliceblue;
+    }
+}
+.row{
+    margin: 10px;
+    white-space: nowrap;
+    display: flex;
+    color: aliceblue;
+    justify-content: space-between;
+    
+}
+.carta{
+    width: 400px;
+    overflow-y: hidden;  
+}
+.cartaTitolo{
+    color: aliceblue;
+    margin: 10px;
+}
+.elemets{
+    margin: 10px;
+}
