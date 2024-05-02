@@ -32,8 +32,7 @@ export class ClasseDialogComponent implements OnInit{
     private insegnaService: InsegnaService,
     @Inject(MAT_DIALOG_DATA) public data: ProfessoreInterface,
     public dialogRef: MatDialogRef<ClasseDialogComponent>
-  ){
-  }
+  ){}
 
   ngOnInit(): void {
     this.getInsegna();
@@ -56,7 +55,7 @@ export class ClasseDialogComponent implements OnInit{
 
   addClass(){
     console.log("rizzo")
-    let dialogRef = this.dialog.open(AddClassProfessorDialogComponent);
+    let dialogRef = this.dialog.open(AddClassProfessorDialogComponent,{data:this.dataSource});
     dialogRef.afterClosed().subscribe()
   }
 

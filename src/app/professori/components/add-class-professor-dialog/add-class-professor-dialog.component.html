@@ -1,8 +1,17 @@
+<div class="dialog">
+<div class="card">
+  <mat-card>
+  <mat-card-title class="title">
+    Aggiungere una classe
+  </mat-card-title>
 <mat-form-field appearance="fill">
     <mat-label>Favorite food</mat-label>
     <mat-select>
-      <mat-option *ngFor="let food of foods" [value]="food.value">
-        {{food.viewValue}}
+      <mat-option *ngFor="let classe of classi" [value]="classe.value">
+        {{classe.viewValue}}
       </mat-option>
     </mat-select>
   </mat-form-field>
+</mat-card>
+</div>
+</div>
