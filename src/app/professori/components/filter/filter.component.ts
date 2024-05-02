@@ -2,8 +2,8 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ClasseService } from 'src/app/classi/service/classe.service';
 import { StudenteFilterInterface } from 'src/app/interfaces/filterInterface/studentFilterInterface';
-import { StudenteService } from '../../service/studenteService';
-import { validateHorizontalPosition } from '@angular/cdk/overlay';
+
+import { ProfessoriService } from '../../service/professori-service.service';
 
 @Component({
   selector: 'app-filter',
@@ -23,7 +23,7 @@ export class FilterComponent {
   formDati: FormGroup;
   constructor(private formBuilder: FormBuilder,
     private classeService: ClasseService,
-    private studentService: StudenteService
+    private professoreService: ProfessoriService 
   ) {
     this.formDati = this.formBuilder.group({
       nome: '',

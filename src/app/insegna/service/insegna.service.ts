@@ -10,12 +10,13 @@ export class InsegnaService {
 
   host = "http://localhost:8080/scuola/webapi/"
   constructor(private http: HttpClient) { }
-  
+
   createInsegna(data:InsegnaInterface):Observable<InsegnaInterface>{
-    let insegna = JSON.stringify(data).toString();
-    console.log("per il bro")
-    console.log(insegna);
-    return this.http.post<InsegnaInterface>(this.host+"insegna",insegna);
+    console.log(data);
+    let insegnaSerializable ={classe:data.classe.idClasse, 
+      professore:data.professore.idProfessore, materia:data.materia}
+    console.log(insegnaSerializable.toString())
+    return this.http.post<InsegnaInterface>(this.host+"insegna",data);
   }
 
   getInsegna():Observable<InsegnaInterface[]>{

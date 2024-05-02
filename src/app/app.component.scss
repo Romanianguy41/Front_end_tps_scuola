@@ -1,43 +1,40 @@
-.toolbar{
-    background-color:#2E4F4F ;
-}
-
-.sidenavContainer{
-    height: calc(207vh - 115vh);
+ mat-toolbar {
+    background-color:#2E4F4F;
     position: fixed;
-    margin-right: 20px;
-}
-.sidenav{
-    display: flex;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2; /* Assicura che il toolbar sia sopra il sidenav */
+  }
+  
+  .sidenavContainer {
+    position: fixed;
+    top: 56px; /* Altezza del toolbar */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #2C3333; /* Colore di sfondo della sidebar */
+  }
+  
+  .sidenav {
     width: 200px;
-    background-color:hwb(180 15% 75%);
-    margin-right: 20px;
-
-}
-.sidenav{
-    width: 200px;
-    background-color:#253f3f;
-    margin-right: 20px;
-
-}
-.sidenavContet{
-    background-color:#2C3333;
-    width: 1530px;
-    margin: 0;
-    min-width: auto;
-    
-}
-.sidenavContet{
-    background-color:#2C3333;
-    width: 1535px;
-    margin: 0;
-    min-width: auto;
-    
-}
-.sidenavElement{
-    margin: 20px;
-}
-
-::ng-deep .mat-drawer-backdrop.mat-drawer-shown{
-    background-color:rgba(23, 41, 41, 0.6)
-}
+    background-color: #253f3f;
+  }
+  
+  .sidenavContent {
+    height: 100%;
+  }
+  
+  .toolbar-margin {
+    height: 56px; /* Altezza del toolbar */
+  }
+  
+  .content {
+    padding: 20px;
+  }
+  
+  /* Impostazioni per il backdrop */
+  ::ng-deep .mat-drawer-backdrop.mat-drawer-shown {
+    background-color: rgba(23, 41, 41, 0.6);
+  }
+  

@@ -4,7 +4,6 @@ body{
 .buttonContainer{
     display: flex;
     justify-content: right;
-    margin-left: 10%;
 }
 .button{
     border-radius: 20px;
@@ -25,4 +24,7 @@ body{
 }
 .tabella{
     margin-bottom: 50px;
+}
+.content{
+    margin: auto;
 }

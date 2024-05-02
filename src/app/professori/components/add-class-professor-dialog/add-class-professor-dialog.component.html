@@ -1,17 +1,36 @@
 <div class="dialog">
-<div class="card">
-  <mat-card>
-  <mat-card-title class="title">
-    Aggiungere una classe
-  </mat-card-title>
-<mat-form-field appearance="fill">
-    <mat-label>Favorite food</mat-label>
-    <mat-select>
-      <mat-option *ngFor="let classe of classi" [value]="classe.value">
-        {{classe.viewValue}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-</mat-card>
-</div>
+  <div class="card">
+    <mat-card>
+      <mat-card-title class="title">
+        Aggiungere una classe
+      </mat-card-title>
+      <form [formGroup]="formDati" (ngSubmit)="onFormSubmit()">
+        <mat-card-content>
+          <mat-form-field appearance="outline">
+            <mat-label>Classe</mat-label>
+            <mat-error *ngIf="formDati.get('materia')?.invalid">
+              Materia <strong>richiesta</strong>
+            </mat-error>
+            <mat-select formControlName="classe">
+              <mat-option *ngFor="let classe of classi" [value]="classe.value">
+                {{classe.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <div *ngIf="!formDati.get('classe')?.invalid">
+            <mat-form-field appearance="outline">
+              <mat-label>Materia</mat-label>
+              <input matInput type="text" formControlName="materia">
+              <mat-error *ngIf="formDati.get('materia')?.invalid">
+                Materia <strong>richiesta</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>  
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="accent" type="submit">Salva</button>
+        </mat-card-actions>
+      </form>
+    </mat-card>
+  </div>
 </div>

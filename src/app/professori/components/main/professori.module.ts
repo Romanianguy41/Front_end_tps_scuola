@@ -6,7 +6,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { ProfessoriComponent } from './professori.component';
 import { TableProfessoriModule } from '../table/table.module';
 import { ProfessorInfoDialogModule } from '../info-dialog/info-dialog.module';
-import { AddDialogModule } from 'src/app/studenti/components/add-dialog/add-dialog-module';
+
+import { FilterModule } from '../filter/add-dialog-module';
 
 @NgModule({
     declarations: [
@@ -20,7 +21,8 @@ import { AddDialogModule } from 'src/app/studenti/components/add-dialog/add-dial
         MatCardModule,
         MatIconModule,
         TableProfessoriModule,
-        ProfessorInfoDialogModule
+        ProfessorInfoDialogModule,
+        FilterModule
     ]
 })
 export class ProfessoriModule { }

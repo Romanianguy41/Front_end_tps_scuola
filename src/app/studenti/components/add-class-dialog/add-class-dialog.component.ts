@@ -29,6 +29,17 @@ export class AddClassDialogComponent implements OnInit{
 
   ngOnInit(): void {
     this.classeService.getclassi().subscribe((value)=>{
+      value.sort((a, b) => {
+        if (a.classe != undefined && b.classe != undefined) {
+          if (a.classe !== b.classe) {
+            return a.classe - b.classe;
+          }
+        }
+        if (a.sezione != undefined && b.sezione != undefined) {
+          return a.sezione.localeCompare(b.sezione);
+        }
+        return -1;
+      });
       this.dataSource = new MatTableDataSource<ClasseInterface>(value);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
@@ -37,7 +48,6 @@ export class AddClassDialogComponent implements OnInit{
   }
 
   addClass(classe:ClasseInterface):void{
-    this.data.classe = classe;
     this.dialogRef.close(this.data);
   }
 

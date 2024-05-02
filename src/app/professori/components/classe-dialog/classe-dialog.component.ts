@@ -12,6 +12,7 @@ import { ProfessoreInterface } from 'src/app/interfaces/professorInterface';
 import { InsegnaInterface } from 'src/app/interfaces/insegnaInterface';
 import { AddDialogComponent } from 'src/app/studenti/components/add-dialog/add-dialog.component';
 import { AddClassProfessorDialogComponent } from '../add-class-professor-dialog/add-class-professor-dialog.component';
+import { Professore } from 'src/app/models/professore';
 
 @Component({
   selector: 'classe-dialog-class',
@@ -42,6 +43,17 @@ export class ClasseDialogComponent implements OnInit{
   getInsegna(){
     const searchString = "rifProfessore:"+this.data.idProfessore
     this.insegnaService.getInsegnaFiltered(searchString).subscribe((value)=>{
+      value.sort((a, b) => {
+        if (a.classe.classe != undefined && b.classe.classe != undefined) {
+          if (a.classe !== b.classe) {
+            return a.classe.classe - b.classe.classe;
+          }
+        }
+        if (a.classe.sezione != undefined && b.classe.sezione != undefined) {
+          return a.classe.sezione.localeCompare(b.classe.sezione);
+        }
+        return -1;
+      });
       this.dataSource = new MatTableDataSource<InsegnaInterface>(value);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
@@ -54,9 +66,14 @@ export class ClasseDialogComponent implements OnInit{
   }
 
   addClass(){
-    console.log("rizzo")
-    let dialogRef = this.dialog.open(AddClassProfessorDialogComponent,{data:this.dataSource});
-    dialogRef.afterClosed().subscribe()
+    let dialogRef = this.dialog.open(AddClassProfessorDialogComponent);
+    dialogRef.afterClosed().subscribe((value:InsegnaInterface)=>{
+      if(value===undefined)
+        return;
+      value.professore=new Professore(this.data.idProfessore);
+      console.log(value);
+      this.insegnaService.createInsegna(value).subscribe(()=>this.getInsegna());
+    })
   }
 
   applyFilter(event: Event) {

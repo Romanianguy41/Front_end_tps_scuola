@@ -1,10 +1,10 @@
 import { ClasseMateria } from "./classeMateria";
 
 export class Professore {
-    id: number|undefined;
+    idProfessore: number|undefined;
     nome: string|undefined;
     cognome: string|undefined;
-    codfiscale: string|undefined;
+    cododiceFiscale: string|undefined;
     luogoNascita: string|undefined;
     dataNascita: Date|undefined;
     email: string|undefined;
@@ -12,5 +12,9 @@ export class Professore {
     CAP: number|undefined;
     cittadinanza: string|undefined;
     telefono: string|undefined;
-    insegna: ClasseMateria[]|undefined;
+    classi: ClasseMateria[]|undefined;
+
+    constructor(idProfessore: number){
+      this.idProfessore=idProfessore
+    }
   }

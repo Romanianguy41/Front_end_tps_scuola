@@ -3,13 +3,13 @@
     <div class="buttonContainer">
         <button mat-raised-button color="accent" class="button" (click)="openDialog()">Aggiungi Professore</button>
     </div>
+    <app-filter></app-filter>
     <div class="tabella">
         <app-table #table [displayedColumns]="displayedColumns" 
         [dataSource]="dataSource" 
         (deleteEvent)="deleteStudent($event)"
         (updateEvent)="openEditDialog($event)"
         (viewClassEvent)="viewClass($event)">
-
 </app-table>
     </div>
     
