@@ -3,7 +3,7 @@
     <div class="buttonContainer">
         <button mat-raised-button color="accent" class="button" (click)="openDialog()">Aggiungi Professore</button>
     </div>
-    <app-filter></app-filter>
+    <app-filter (finalString)="onFilterResearch($event)"></app-filter>
     <div class="tabella">
         <app-table #table [displayedColumns]="displayedColumns" 
         [dataSource]="dataSource" 

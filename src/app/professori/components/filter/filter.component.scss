@@ -6,12 +6,12 @@
 .riga{
     display: flex;
     gap: 50px;
+    border-left: 0px;
     mat-form-field{
         width: 30%
     }
 
 }
-
 
 .content{
     padding-top:10px ;

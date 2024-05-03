@@ -4,6 +4,8 @@ import { ClasseService } from 'src/app/classi/service/classe.service';
 import { StudenteFilterInterface } from 'src/app/interfaces/filterInterface/studentFilterInterface';
 
 import { ProfessoriService } from '../../service/professori-service.service';
+import { ProfessoreFilterInterface } from 'src/app/interfaces/filterInterface/professoreFilterInterface';
+import { InsegnaService } from 'src/app/insegna/service/insegna.service';
 
 @Component({
   selector: 'app-filter',
@@ -23,7 +25,8 @@ export class FilterComponent {
   formDati: FormGroup;
   constructor(private formBuilder: FormBuilder,
     private classeService: ClasseService,
-    private professoreService: ProfessoriService 
+    private professoreService: ProfessoriService,
+    private insegnaService: InsegnaService
   ) {
     this.formDati = this.formBuilder.group({
       nome: '',
@@ -32,6 +35,7 @@ export class FilterComponent {
       email: '',
       classe: '',
       sezione: '',
+      materia:''
 
     })}
   
@@ -47,9 +51,11 @@ export class FilterComponent {
         data.email = data.email.trim().toLowerCase();
       if(data.sezione)
         data.sezione = data.sezione.trim().toLowerCase();
+      if(data.materia)
+        data.materia = data.materia.trim().toLowerCase();
     }
 
-    createClasseSezioneString(data:StudenteFilterInterface){
+    createClasseSezioneString(data:ProfessoreFilterInterface){
       let localSearch = new String();
       if(data.classe !== '' && data.classe !== null){
         localSearch = localSearch + "classe:"+data.classe;
@@ -62,8 +68,8 @@ export class FilterComponent {
       }
 
       if(localSearch.toString() === ''){
-        this.createFullSearchString(data)
-        this.finalString.next(this.searchString);
+        this.getMateriaFiltred('',data);
+       
       }
       else{
         this.classeService.getclassiFiltered(localSearch.toString()).subscribe((value)=>{
@@ -84,8 +90,7 @@ export class FilterComponent {
             classSearch = classSearch +"rifClasse: -1";
           }
 
-          this.createFullSearchString(data);
-          this.finalString.next(this.createReturnString(classSearch));
+          this.getMateriaFiltred(classSearch,data)
           
         })
       }
@@ -106,7 +111,7 @@ export class FilterComponent {
       return finalString
     }
 
-    createFullSearchString(data:StudenteFilterInterface){
+    createFullSearchString(data:ProfessoreFilterInterface){
       this.searchString = '';
       if(data.cognome !== '' && data.cognome !== null){
         this.searchString = this.searchString + "cognome:'"+data.cognome+"'";
@@ -129,6 +134,40 @@ export class FilterComponent {
         }
         this.searchString = this.searchString + "codFiscale:'"+data.codiceFiscale+"'";
       }
+    }
+
+    getMateriaFiltred(classi:String, data:ProfessoreFilterInterface){
+      let insegnaSearch = "";
+      if(data.materia !== '' && data.materia !== null){
+          insegnaSearch = "materia:'" + data.materia+"'";
+      }
+      if(classi!=='' && classi!==null && classi !== "-1"){
+        insegnaSearch = ";"+insegnaSearch
+        insegnaSearch = classi + insegnaSearch;
+      }
+      console.log(insegnaSearch);
+      this.insegnaService.getInsegnaFiltered(insegnaSearch).subscribe((value)=>{
+        console.log("insegna")
+        console.log(value)
+        let professoreSearch =""
+  
+          if(value.length>0){
+            professoreSearch = "$";
+            for(let i = 0; i < value.length; i++){
+              professoreSearch = professoreSearch +"idProfessore: "+value[i].professore.idProfessore?.toString();
+              if (i < value.length-1){
+                professoreSearch = professoreSearch + ",";
+              }
+            }
+          professoreSearch =professoreSearch + "$";
+          }
+          else{
+            professoreSearch = professoreSearch +"idProfessore: -1";
+          }
+          this.createFullSearchString(data);
+
+          this.finalString.next(this.createReturnString(professoreSearch));
+      })
     }
 
     clearFilter() {

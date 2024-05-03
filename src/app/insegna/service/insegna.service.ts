@@ -24,7 +24,9 @@ export class InsegnaService {
   }
 
   getInsegnaFiltered(search:string):Observable<InsegnaInterface[]>{
-    return this.http.get<InsegnaInterface[]>(this.host+"insegna/filter/?search="+search);
+    console.log("EHIi")
+    console.log(search)
+    return this.http.get<InsegnaInterface[]>(this.host+"insegna/filter?search="+search);
   }
   
   deleteInsegna(idinsegna:string):Observable<InsegnaInterface>{

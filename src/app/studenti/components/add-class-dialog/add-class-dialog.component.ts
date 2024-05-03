@@ -48,7 +48,8 @@ export class AddClassDialogComponent implements OnInit{
   }
 
   addClass(classe:ClasseInterface):void{
-    this.dialogRef.close(this.data);
+      this.data.classe = classe;
+      this.dialogRef.close(this.data);
   }
 
   removeClass():void{
