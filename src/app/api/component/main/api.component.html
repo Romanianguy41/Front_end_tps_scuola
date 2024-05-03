@@ -121,8 +121,9 @@
                 <div>The data of the relative student</div>
                 <div style="margin-top: 10px;"><p>body example:</p></div>
                 <div class="json"> 
-<pre>
 
+<pre>
+    
     {{'{
         "cognome": "Rizzo",
         "nome": "Nicolas",
@@ -141,6 +142,7 @@
         "cittadinanza": "Italiana"
     }'}}
     </pre>
+
                 </div>
             </mat-expansion-panel>
             </mat-accordion>
@@ -205,6 +207,523 @@
         </div>
         </mat-expansion-panel>
      </mat-accordion>
+    </div>
+    
+    
+
+
+    <div class="dropDownMenu">
+        <mat-accordion>
+            <mat-expansion-panel>
+            <mat-expansion-panel-header class="testata">
+                <mat-panel-title>
+                    <strong>Professors API</strong>
+                </mat-panel-title>
+                <mat-panel-description>
+                    All API that interact with the Professors
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+        
+            <div class="dropDownMenu">
+            <mat-accordion >
+                <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <span class="methodGET">GET </span> webapi/scuola/professore
+                    </mat-panel-title>
+                    <mat-panel-description>
+                    Get all professore
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <hr>
+                <p>This API request return all the professors in the database</p>
+                <hr>
+                <div><p class="underline">Parameters:</p></div>
+                <div>No parameters</div>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </div>
+        <div class="dropDownMenu">
+        <mat-accordion class="dropDownMenu">
+            <mat-expansion-panel>
+            <mat-expansion-panel-header class="testata">
+                <mat-panel-title>
+                    <span class="methodGET">GET </span> webapi/scuola/professore/filtred
+                </mat-panel-title>
+                <mat-panel-description>
+                Get filtred professore
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <hr>
+                <p>This API request return all the professors in the database that match the search querry</p>
+            <hr>
+            <div><p class="underline">Parameters:</p></div>
+            <div>Query params: <span >search</span>
+            
+            </div>
+            <div class="description">   
+                <p>Description</p>
+            </div><div style="margin-bottom: 10px;">
+                <span class="tab">search: key value pair, using<span class="space"></span> </span> <strong> '<span class="space"></span> ' </strong><span class="space"></span><span> characters for string elements</span>
+            </div>
+            <div><p>Example:<p class="tab"> search=cognome:'Rocchi'</p><p class="tab"> where <i>cognome</i> is the key and <i>'Rocchi'</i> is the value</p></div>
+            </mat-expansion-panel>
+        </mat-accordion>
+        </div>
+        <div class="dropDownMenu">
+            <mat-accordion class="dropDownMenu">
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <span class="methodPOST">POST </span> webapi/scuola/professore
+                </mat-panel-title>
+                <mat-panel-description>
+                    Create new professor
+                </mat-panel-description>
+                </mat-expansion-panel-header>
+                <hr>
+                <p>This API will add a new professor to the DB</p>
+                <hr>
+                <div><p class="underline">Parameters:</p></div>
+                <div>No parameters</div>
+                <hr>
+                <div><p class="underline">Body:</p></div>
+                <div>The data of the relative professor</div>
+                <div style="margin-top: 10px;"><p>body example:</p></div>
+                <div class="json">
+<pre>
+    
+    {{'{
+        "cognome": "Chinni",
+        "nome": "Valentino",
+        "codiceFiscale": "BNNGNN87T10E789W",
+        "dataNascita": "1987-01-01",
+        "luogoNascita": "Calabria saudita",  
+        "email": "valentino.chinni@polofermigiorgi.it",
+        "numeroTelefono": "+39 432 543 1234",
+        "indirizzo": "Via romana",
+        "CAP": 55100,
+        "cittadinanza": "Italiana"
+    }'}}
+    </pre>
+                </div>
+
+            </mat-expansion-panel>
+            </mat-accordion>
+        </div>
+        <div class="dropDownMenu">
+            <mat-accordion class="dropDownMenu">
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <span class="methodPUT">PUT </span> webapi/scuola/professore
+                </mat-panel-title>
+                <mat-panel-description>
+                    Update a professor
+                </mat-panel-description>
+                </mat-expansion-panel-header>
+                <hr>
+                <p>This API request will update a professor in the database</p>
+                <hr>
+                <div><p class="underline">Parameters:</p></div>
+                <div>No parameters</div>
+                <hr>
+                <div><p class="underline">Body:</p></div>
+                <div>The data of the relative professor</div>
+                <div style="margin-top: 10px;"><p>body example:</p></div>
+                <div class="json"> 
+
+<pre>
+
+    {{'{
+        "cognome": "Chinni",
+        "nome": "Valentino",
+        "codiceFiscale": "BNNGNN87T10E789W",
+        "dataNascita": "1987-01-01",
+        "luogoNascita": "Calabria saudita",  
+        "email": "valentino.chinni@polofermigiorgi.it",
+        "numeroTelefono": "+39 432 543 1234",
+        "indirizzo": "Via romana",
+        "CAP": 55100,
+        "cittadinanza": "Italiana",
+        "insegna": []
+    }'}}
+    </pre>
+
+                </div>
+            </mat-expansion-panel>
+            </mat-accordion>
+        </div>
+        <div class="dropDownMenu">
+            <mat-accordion class="dropDownMenu">
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <span class="methodDELETE">DELETE </span> webapi/scuola/professore/{{'{idProfessore}'}}
+                </mat-panel-title>
+                <mat-panel-description>
+                    Delete a professor
+                </mat-panel-description>
+                </mat-expansion-panel-header>
+                <hr>
+                <p>This API request removes from the database the user that match the idProfessore</p>
+                <hr>
+                <div><p class="underline">Parameters:</p></div>
+                <div>Path params: <span >idProfessore</span>
+                
+                </div>
+                <div class="description">   
+                    <p>Description</p>
+                </div><div style="margin-bottom: 10px;">
+                    <span class="tab">To use this API you need to pass in the URL the idProfessore in this way you can delete the professor</span>
+                </div>
+                <hr>
+                <div><p class="underline">Body:</p></div>
+                <div>No body</div>
+            </mat-expansion-panel>
+            </mat-accordion>
+        </div>
+        </mat-expansion-panel>
+     </mat-accordion>
     </div> 
+    
+
+
+
+
+
+
+
+
+
+    <div class="dropDownMenu">
+        <mat-accordion>
+            <mat-expansion-panel>
+            <mat-expansion-panel-header class="testata">
+                <mat-panel-title>
+                    <strong>Classe API</strong>
+                </mat-panel-title>
+                <mat-panel-description>
+                    All API that interact with the Classes
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+        
+            <div class="dropDownMenu">
+            <mat-accordion >
+                <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <span class="methodGET">GET </span> webapi/scuola/classe
+                    </mat-panel-title>
+                    <mat-panel-description>
+                    Get all classe
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <hr>
+                <p>This API request return all the classes in the database</p>
+                <hr>
+                <div><p class="underline">Parameters:</p></div>
+                <div>No parameters</div>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </div>
+        <div class="dropDownMenu">
+        <mat-accordion class="dropDownMenu">
+            <mat-expansion-panel>
+            <mat-expansion-panel-header class="testata">
+                <mat-panel-title>
+                    <span class="methodGET">GET </span> webapi/scuola/classe/filtred
+                </mat-panel-title>
+                <mat-panel-description>
+                Get filtred classes
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <hr>
+                <p>This API request return all the classes in the database that match the search querry</p>
+            <hr>
+            <div><p class="underline">Parameters:</p></div>
+            <div>Query params: <span >search</span>
+            
+            </div>
+            <div class="description">   
+                <p>Description</p>
+            </div><div style="margin-bottom: 10px;">
+                <span class="tab">search: key value pair, using<span class="space"></span> </span> <strong> '<span class="space"></span> ' </strong><span class="space"></span><span> characters for string elements</span>
+            </div>
+            <div><p>Example:<p class="tab"> search=classe:1</p><p class="tab"> where <i>classe</i> is the key and <i>1</i> is the value</p></div>
+            </mat-expansion-panel>
+        </mat-accordion>
+        </div>
+        <div class="dropDownMenu">
+            <mat-accordion class="dropDownMenu">
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <span class="methodPOST">POST </span> webapi/scuola/classe
+                </mat-panel-title>
+                <mat-panel-description>
+                    Create new class
+                </mat-panel-description>
+                </mat-expansion-panel-header>
+                <hr>
+                <p>This API will add a new class to the DB</p>
+                <hr>
+                <div><p class="underline">Parameters:</p></div>
+                <div>No parameters</div>
+                <hr>
+                <div><p class="underline">Body:</p></div>
+                <div>The data of the relative classe</div>
+                <div style="margin-top: 10px;"><p>body example:</p></div>
+                <div class="json">
+<pre>
+    {{'
+    {
+    "classe": 5,
+    "sezione":"CIF"
+    }'}}
+    </pre>
+                </div>
+
+            </mat-expansion-panel>
+            </mat-accordion>
+        </div>
+        <div class="dropDownMenu">
+            <mat-accordion class="dropDownMenu">
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <span class="methodPUT">PUT </span> webapi/scuola/classe
+                </mat-panel-title>
+                <mat-panel-description>
+                    Update a class
+                </mat-panel-description>
+                </mat-expansion-panel-header>
+                <hr>
+                <p>This API request will update a class in the database</p>
+                <hr>
+                <div><p class="underline">Parameters:</p></div>
+                <div>No parameters</div>
+                <hr>
+                <div><p class="underline">Body:</p></div>
+                <div>The data of the relative class</div>
+                <div style="margin-top: 10px;"><p>body example:</p></div>
+                <div class="json"> 
+<pre>
+
+    {{'{
+        "idClasse": 1,
+        "classe": 2,
+        "sezione":"CIF"
+    }'}}
+    </pre>
+
+                </div>
+            </mat-expansion-panel>
+            </mat-accordion>
+        </div>
+        <div class="dropDownMenu">
+            <mat-accordion class="dropDownMenu">
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <span class="methodDELETE">DELETE </span> webapi/scuola/classe/{{'{idClasse}'}}
+                </mat-panel-title>
+                <mat-panel-description>
+                    Delete a classe
+                </mat-panel-description>
+                </mat-expansion-panel-header>
+                <hr>
+                <p>This API request removes from the database the class that match the idClasse</p>
+                <hr>
+                <div><p class="underline">Parameters:</p></div>
+                <div>Path params: <span >idClasse</span>
+                
+                </div>
+                <div class="description">   
+                    <p>Description</p>
+                </div><div style="margin-bottom: 10px;">
+                    <span class="tab">To use this API you need to pass in the URL the idClasse in this way you can delete the class</span>
+                </div>
+                <hr>
+                <div><p class="underline">Body:</p></div>
+                <div>No body</div>
+            </mat-expansion-panel>
+            </mat-accordion>
+        </div>
+        </mat-expansion-panel>
+     </mat-accordion>
+    </div> 
+    <div class="dropDownMenu">
+    <mat-accordion>
+        <mat-expansion-panel>
+        <mat-expansion-panel-header class="testata">
+            <mat-panel-title>
+                <strong>Subject API</strong>
+            </mat-panel-title>
+            <mat-panel-description>
+                All API that interact with the subject
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+    
+        <div class="dropDownMenu">
+        <mat-accordion >
+            <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <span class="methodGET">GET </span> webapi/scuola/materia
+                </mat-panel-title>
+                <mat-panel-description>
+                Get all subjects
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <hr>
+            <p>This API request return all the subjects in the database</p>
+            <hr>
+            <div><p class="underline">Parameters:</p></div>
+            <div>No parameters</div>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+    <div class="dropDownMenu">
+    <mat-accordion class="dropDownMenu">
+        <mat-expansion-panel>
+        <mat-expansion-panel-header class="testata">
+            <mat-panel-title>
+                <span class="methodGET">GET </span> webapi/scuola/materia/filtred
+            </mat-panel-title>
+            <mat-panel-description>
+            Get filtred subjects
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <hr>
+            <p>This API request return all the subjects in the database that match the search querry</p>
+        <hr>
+        <div><p class="underline">Parameters:</p></div>
+        <div>Query params: <span >search</span>
+        
+        </div>
+        <div class="description">   
+            <p>Description</p>
+        </div><div style="margin-bottom: 10px;">
+            <span class="tab">search: key value pair, using<span class="space"></span> </span> <strong> '<span class="space"></span> ' </strong><span class="space"></span><span> characters for string elements</span>
+        </div>
+        <div><p>Example:<p class="tab"> search=materia:'Storia'</p><p class="tab"> where <i>materia</i> is the key and <i>'Storia'</i> is the value</p></div>
+        </mat-expansion-panel>
+    </mat-accordion>
+    </div>
+    <div class="dropDownMenu">
+        <mat-accordion class="dropDownMenu">
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+            <mat-panel-title>
+                <span class="methodPOST">POST </span> webapi/scuola/materia
+            </mat-panel-title>
+            <mat-panel-description>
+                Create new subjects
+            </mat-panel-description>
+            </mat-expansion-panel-header>
+            <hr>
+            <p>This API will add a new subjects to the DB</p>
+            <hr>
+            <div><p class="underline">Parameters:</p></div>
+            <div>No parameters</div>
+            <hr>
+            <div><p class="underline">Body:</p></div>
+            <div>The data of the relative subjects</div>
+            <div style="margin-top: 10px;"><p>body example:</p></div>
+            <div class="json">
+<pre>
+
+{{'    {
+        "classe": {
+            "idClasse": 2
+            },
+        "materia": "Storia",
+        "professore": {
+            "idProfessore": 1
+            }
+    }
+    '}}
+</pre>
+            </div>
+
+        </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+    <div class="dropDownMenu">
+        <mat-accordion class="dropDownMenu">
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+            <mat-panel-title>
+                <span class="methodPUT">PUT </span> webapi/scuola/materia
+            </mat-panel-title>
+            <mat-panel-description>
+                Update a subjects
+            </mat-panel-description>
+            </mat-expansion-panel-header>
+            <hr>
+            <p>This API request will update a subjects in the database</p>
+            <hr>
+            <div><p class="underline">Parameters:</p></div>
+            <div>No parameters</div>
+            <hr>
+            <div><p class="underline">Body:</p></div>
+            <div>The data of the relative subjects</div>
+            <div style="margin-top: 10px;"><p>body example:</p></div>
+            <div class="json"> 
+
+<pre>
+
+{{'    {
+        "idInsegna": 1,
+        "classe": {
+            "idClasse": 2
+            },
+        "materia": "Italiano",
+        "professore": {
+            "idProfessore": 1
+            }
+    }
+    '}}
+</pre>
+
+            </div>
+        </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+    <div class="dropDownMenu">
+        <mat-accordion class="dropDownMenu">
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+            <mat-panel-title>
+                <span class="methodDELETE">DELETE </span> webapi/scuola/materia/{{'{idMateria}'}}
+            </mat-panel-title>
+            <mat-panel-description>
+                Delete a professor
+            </mat-panel-description>
+            </mat-expansion-panel-header>
+            <hr>
+            <p>This API request removes from the database the subject that match the idMateria</p>
+            <hr>
+            <div><p class="underline">Parameters:</p></div>
+            <div>Path params: <span >idMateria</span>
+            
+            </div>
+            <div class="description">   
+                <p>Description</p>
+            </div><div style="margin-bottom: 10px;">
+                <span class="tab">To use this API you need to pass in the URL the idMateria in this way you can delete the materia</span>
+            </div>
+            <hr>
+            <div><p class="underline">Body:</p></div>
+            <div>No body</div>
+        </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+    </mat-expansion-panel>
+ </mat-accordion>
 </div>
+</div>
+
+
 </ng-container>
