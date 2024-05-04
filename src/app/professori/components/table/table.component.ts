@@ -27,10 +27,12 @@ export class TableComponent implements AfterViewInit{
   }
 
   ngAfterViewInit() {
-    if (this.dataSource) {
+    if (this.dataSource && this.sort && this.paginator) {
+      this.addSpecs();
+    } else {
       setTimeout(() => {
-        this.addSpecs();
-      }, 50);
+        this.ngAfterViewInit(); 
+      }, 100); 
     }
   }
   addSpecs(){
@@ -40,12 +42,10 @@ export class TableComponent implements AfterViewInit{
 
   deleteProfessore(professore:ProfessoreInterface): void {
     this.deleteEvent.next(professore.idProfessore.toString());
-    this.addSpecs();
   }
 
   updateProfessore(professore:ProfessoreInterface): void{
     this.updateEvent.next(professore);
-    this.addSpecs();
   }
 
   applyFilter(event: Event) {
@@ -55,16 +55,13 @@ export class TableComponent implements AfterViewInit{
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
-    this.addSpecs();
   }
 
   openInfoDialog(Professore:ProfessoreInterface){
     this.dialog.open(InfoProfessoreDialogComponent, {data: Professore});
-    this.addSpecs();
   }
 
   addClass(professore:ProfessoreInterface) {
-    this.addSpecs();
     this.viewClassEvent.next(professore);
   }
 

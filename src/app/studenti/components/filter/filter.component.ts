@@ -66,7 +66,7 @@ export class FilterComponent {
         this.finalString.next(this.searchString);
       }
       else{
-        this.classeService.getclassiFiltered(localSearch.toString()).subscribe((value)=>{
+        this.classeService.getClassiFiltered(localSearch.toString()).subscribe((value)=>{
 
           let classSearch =""
   

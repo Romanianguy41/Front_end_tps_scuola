@@ -28,7 +28,7 @@ export class AddClassDialogComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.classeService.getclassi().subscribe((value)=>{
+    this.classeService.getClassi().subscribe((value)=>{
       value.sort((a, b) => {
         if (a.classe != undefined && b.classe != undefined) {
           if (a.classe !== b.classe) {

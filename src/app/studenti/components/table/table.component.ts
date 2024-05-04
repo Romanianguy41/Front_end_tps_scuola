@@ -26,10 +26,12 @@ export class TableComponent implements AfterViewInit{
   }
 
   ngAfterViewInit() {
-    if (this.dataSource) {
+    if (this.dataSource && this.sort && this.paginator) {
+      this.addSpecs();
+    } else {
       setTimeout(() => {
-        this.addSpecs();
-      }, 50);
+        this.ngAfterViewInit(); 
+      }, 100); 
     }
   }
   addSpecs(){
@@ -39,12 +41,10 @@ export class TableComponent implements AfterViewInit{
 
   deleteStudente(studente:StudenteInterface): void {
     this.deleteEvent.next(studente.idStudente.toString());
-    this.addSpecs();
   }
 
   updateStudente(studente:StudenteInterface): void{
     this.updateEvent.next(studente);
-    this.addSpecs();
   }
   addClass(studente:StudenteInterface): void{
     this.addClassEvent.next(studente);
@@ -57,12 +57,10 @@ export class TableComponent implements AfterViewInit{
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
-    this.addSpecs();
   }
 
   openInfoDialog(studente:StudenteInterface){
     console.log(studente);
-    this.addSpecs();
     let dialogRef = this.dialog.open(InfoDialogComponent, {data: studente});
   }
 

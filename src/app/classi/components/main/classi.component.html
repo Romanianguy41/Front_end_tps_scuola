@@ -1,1 +1,16 @@
 <p>classi works!</p>
+<div class="title"><h1>Gestione Classi</h1></div>
+<ng-container class="container">
+    <div class="buttonContainer">
+        <button mat-raised-button color="accent" class="button" (click)="addClasse()" >Aggiungi Classi</button>
+    </div>
+    <div class="tabella" >
+        <app-tabella-classi #table [displayedColumns]="displayedColumns" 
+        [dataSource]="dataSource"
+        (deleteEvent)="deleteClass($event)"
+        (updateEvent)="openEditDialog($event)" >
+</app-tabella-classi>
+    </div>
+    
+
+</ng-container>

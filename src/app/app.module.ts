@@ -14,8 +14,8 @@ import { StudentiModule } from './studenti/components/main/studenti.module';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { APIModule } from './api/component/main/api.module';
+import { ClasseModule } from './classi/components/main/classi.module';
 import { ProfessoriModule } from './professori/components/main/professori.module';
-import { AddClassProfessorDialogComponent } from './professori/components/add-class-professor-dialog/add-class-professor-dialog.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +35,8 @@ import { AddClassProfessorDialogComponent } from './professori/components/add-cl
     HttpClientModule,
     MatSidenavModule,
     APIModule,
+    ClasseModule,
+    ProfessoriModule
   ],
   providers: [],
   bootstrap: [AppComponent]

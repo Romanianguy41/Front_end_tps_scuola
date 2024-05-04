@@ -1,0 +1,29 @@
+<ng-container>
+<div mat-dialog-title class="title">
+    <div *ngIf="data!=undefined; else elseBlock" ><h1>Modifica dati</h1></div>
+    <ng-template #elseBlock ><h1>Inserisci dati</h1></ng-template>
+</div>
+    <form [formGroup]="formDati" (ngSubmit)="onFormSubmit()">
+    <div mat-dialog-content class="content">
+        <div class="riga">
+                <mat-form-field appearance="outline">
+                    <mat-label>Classe</mat-label>
+                    <input matInput type="number" formControlName="classe">
+                    <mat-error *ngIf="formDati.get('classe')?.invalid">
+                        Classe <strong>richiesto</strong></mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" >
+                    <mat-label>Sezione</mat-label>
+                    <input matInput type="text" formControlName="sezione">
+                    <mat-error *ngIf="formDati.get('sezione')?.invalid">
+                        Sezione <strong>richiesto</strong></mat-error>
+                </mat-form-field>
+        </div>
+    </div>
+    <div mat-dialog-actions class="buttons">
+        <button mat-raised-button type="reset">Reset</button>
+        <button mat-raised-button color="accent" type="submit">Salva</button>
+    </div>
+    </form>
+</ng-container>
