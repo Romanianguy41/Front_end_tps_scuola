@@ -23,8 +23,6 @@ export class AddClassDialogComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<AddClassDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) {
-      console.log("dialog")
-      console.log(data)
 
     this.formDati = this.formBuilder.group({
       classe: ['',Validators.required],

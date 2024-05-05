@@ -11,8 +11,6 @@ export class ClasseService {
   
   createClasse(data:ClasseInterface):Observable<ClasseInterface>{
     let classe = JSON.stringify(data).toString();
-    console.log("per il bro")
-    console.log(classe);
     return this.http.post<ClasseInterface>(this.host+"classe",classe);
   }
 

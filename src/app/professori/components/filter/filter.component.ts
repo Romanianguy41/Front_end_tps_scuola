@@ -145,10 +145,7 @@ export class FilterComponent {
         insegnaSearch = ";"+insegnaSearch
         insegnaSearch = classi + insegnaSearch;
       }
-      console.log(insegnaSearch);
       this.insegnaService.getInsegnaFiltered(insegnaSearch).subscribe((value)=>{
-        console.log("insegna")
-        console.log(value)
         let professoreSearch =""
   
           if(value.length>0){

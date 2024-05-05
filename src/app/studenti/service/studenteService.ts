@@ -13,8 +13,6 @@ export class StudenteService {
   
   createStudente(data:StudenteInterface):Observable<StudenteInterface>{
     let studente = JSON.stringify(data).toString();
-    console.log("per il bro")
-    console.log(studente);
     return this.http.post<StudenteInterface>(this.host+"studente",studente);
   }
 
@@ -32,13 +30,10 @@ export class StudenteService {
 
   updateStudente(data:StudenteInterface):Observable<StudenteInterface>{
     let studente = JSON.stringify(data).toString();
-    console.log(studente);
     return this.http.put<StudenteInterface>(this.host+"studente",studente);
   }
 
   removeClasseStudente(idStudente:string):Observable<StudenteInterface>{
-    console.log(idStudente);
-    console.log(this.host+"studente/classe/"+idStudente);
     return this.http.put<StudenteInterface>(this.host+"studente/classe/"+idStudente,null);
   }
 

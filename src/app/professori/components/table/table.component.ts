@@ -34,8 +34,6 @@ export class TableComponent implements AfterViewInit{
 
   ngAfterViewInit() {
     if (this.dataSource && this.sort && this.paginator) {
-      console.log(this.dataSource.sort)
-      console.log(this.dataSource.paginator)
       this.addSpecs();
     } else {
       setTimeout(() => {

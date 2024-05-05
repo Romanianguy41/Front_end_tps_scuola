@@ -30,7 +30,6 @@ export class ClassiComponent {
     if(this.searchString === undefined){
     this.classeService.getClassi().subscribe({
       next: (res) => {
-        console.log(res)
         this.dataSource = new MatTableDataSource<ClasseInterface>(res);
         this.updateTable.next('');
       },
@@ -52,7 +51,6 @@ export class ClassiComponent {
   addClasse(){
     let dialogRef = this.dialog.open(AddClassDialogComponent);
     dialogRef.afterClosed().subscribe((val) => {
-      console.log(val)
       if (val) {
         this.classeService.createClasse(val).subscribe(() => {
           this.getClassi()
@@ -65,7 +63,6 @@ export class ClassiComponent {
   openEditDialog(data: ClasseInterface) {
     let dialogRef = this.dialog.open(AddClassDialogComponent, { data });
     dialogRef.afterClosed().subscribe((val) => {
-      console.log(val);
       if (val) {
         val.idClasse=data.idClasse
         this.classeService.updateClasse(val).subscribe(() => {

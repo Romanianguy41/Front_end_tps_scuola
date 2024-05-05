@@ -29,7 +29,6 @@ export class ProfessoriComponent {
     if(this.searchString === undefined){
     this.professoreService.getProfessori().subscribe({
       next: (res) => {
-        console.log(res)
         this.dataSource = new MatTableDataSource<ProfessoreInterface>(res);
       },
       error: console.log,
@@ -68,17 +67,13 @@ export class ProfessoriComponent {
 
   onFilterResearch(searchString:string){
     this.searchString = searchString
-    console.log(searchString);
     this.getProfessori();
   }
 
   openEditDialog(data: ProfessoreInterface) {
     data.dataNascita = new Date (data.dataNascita)
-    console.log("data: ")
-    console.log(data)
     let dialogRef = this.dialog.open(AddDialogComponent, { data });
     dialogRef.afterClosed().subscribe((val) => {
-      console.log(val);
       if (val) {
         val.idProfessore=data.idProfessore
         this.professoreService.updateProfessore(val).subscribe(() => {

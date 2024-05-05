@@ -37,8 +37,6 @@ export class TabellaClassiComponent implements OnChanges {
 
   ngAfterViewInit() {
     if (this.dataSource && this.sort && this.paginator) {
-      console.log(this.dataSource.sort)
-      console.log(this.dataSource.paginator)
       this.addSpecs();
     } else {
       setTimeout(() => {
@@ -49,8 +47,6 @@ export class TabellaClassiComponent implements OnChanges {
   addSpecs(){
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
-    console.log(this.dataSource.sort)
-    console.log(this.dataSource.paginator)
   }
 
   deleteClasse(classe:ClasseInterface): void {

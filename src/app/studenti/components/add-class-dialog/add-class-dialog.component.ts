@@ -43,7 +43,6 @@ export class AddClassDialogComponent implements OnInit{
       this.dataSource = new MatTableDataSource<ClasseInterface>(value);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
-      console.log(value);
     })
   }
 

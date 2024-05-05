@@ -71,7 +71,6 @@ export class ClasseDialogComponent implements OnInit{
       if(value===undefined)
         return;
       value.professore=new Professore(this.data.idProfessore);
-      console.log(value);
       this.insegnaService.createInsegna(value).subscribe(()=>this.getInsegna());
     })
   }
@@ -84,8 +83,6 @@ export class ClasseDialogComponent implements OnInit{
       const materia = data.materia.toLowerCase();
       if (classeAsString && sezione) {
         if(classeAsString.includes(filter)){
-          console.log(classeAsString.includes(filter))
-          console.log(classeAsString)
           return true
         }
         if(sezione.includes(filter) ||  materia.includes(filter))

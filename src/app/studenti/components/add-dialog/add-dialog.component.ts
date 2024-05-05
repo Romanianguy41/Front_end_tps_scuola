@@ -32,8 +32,6 @@ export class AddDialogComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<AddDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) {
-      console.log("dialog")
-      console.log(data)
     this.emailFormControl = new FormControl(data?.email, [Validators.required, Validators.email]);
     this.codiceFiscaleControl = new FormControl(data?.codiceFiscale,[Validators.required, codiceFiscaleValidator()])
     this.telefonoControl = new FormControl(data?.telefono,[Validators.required, telefonoValidator()])

@@ -12,8 +12,6 @@ export class ProfessoriService {
   
   createProfessore(data:ProfessoreInterface):Observable<ProfessoreInterface>{
     let professore = JSON.stringify(data).toString();
-    console.log("per il bro")
-    console.log(professore);
     return this.http.post<ProfessoreInterface>(this.host+"professore",professore);
   }
 
@@ -31,7 +29,6 @@ export class ProfessoriService {
 
   updateProfessore(data:ProfessoreInterface):Observable<ProfessoreInterface>{
     let professore = JSON.stringify(data).toString();
-    console.log(professore);
     return this.http.put<ProfessoreInterface>(this.host+"professore",professore);
   }
 }

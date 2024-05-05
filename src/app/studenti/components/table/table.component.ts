@@ -33,8 +33,6 @@ export class TableComponent implements AfterViewInit{
 
   ngAfterViewInit() {
     if (this.dataSource && this.sort && this.paginator) {
-      console.log(this.dataSource.sort)
-      console.log(this.dataSource.paginator)
       this.addSpecs();
     } else {
       setTimeout(() => {
@@ -68,7 +66,6 @@ export class TableComponent implements AfterViewInit{
   }
 
   openInfoDialog(studente:StudenteInterface){
-    console.log(studente);
     let dialogRef = this.dialog.open(InfoDialogComponent, {data: studente});
   }
 

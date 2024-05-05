@@ -54,9 +54,7 @@ export class AddProfessorDialogComponent implements OnInit{
       if(value===undefined)
         return;
       value.classe.idClasse = this.data.idClasse
-      console.log(value);
-      this.insegnaService.createInsegna(value).subscribe((value)=>{console.log(value), this.dialogRef.close()})
-      console.log(value);
+      this.insegnaService.createInsegna(value).subscribe(()=>this.dialogRef.close())
     })
   }
 

@@ -68,7 +68,6 @@ export class StudentiComponent implements OnInit {
 
   onFilterResearch(searchString:string){
     this.searchString = searchString
-    console.log(searchString);
     this.getStudenti();
   }
 
@@ -88,7 +87,6 @@ export class StudentiComponent implements OnInit {
   openAddClassDialog(data:StudenteInterface){
     let dialogRef = this.dialog.open(AddClassDialogComponent, { data });
     dialogRef.afterClosed().subscribe((val: StudenteInterface | string) => {
-      console.log(val)
       if (typeof val === 'string') {
         if (val === "remove") {
           this.studentService.removeClasseStudente(data.idStudente.toString()).subscribe(() => {
@@ -98,7 +96,6 @@ export class StudentiComponent implements OnInit {
       } else {
         if(val){
           val.idStudente = data.idStudente;
-          console.log(val);
           this.studentService.updateStudente(val).subscribe(() => {
             this.getStudenti();
           });

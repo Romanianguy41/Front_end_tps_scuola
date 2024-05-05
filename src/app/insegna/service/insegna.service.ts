@@ -12,10 +12,8 @@ export class InsegnaService {
   constructor(private http: HttpClient) { }
 
   createInsegna(data:InsegnaInterface):Observable<InsegnaInterface>{
-    console.log(data);
     let insegnaSerializable ={classe:data.classe.idClasse, 
       professore:data.professore.idProfessore, materia:data.materia}
-    console.log(insegnaSerializable.toString())
     return this.http.post<InsegnaInterface>(this.host+"insegna",data);
   }
 
@@ -33,7 +31,6 @@ export class InsegnaService {
 
   updateInsegna(data:InsegnaInterface):Observable<InsegnaInterface>{
     let insegna = JSON.stringify(data).toString();
-    console.log(insegna);
     return this.http.put<InsegnaInterface>(this.host+"insegna",insegna);
   }
 }
