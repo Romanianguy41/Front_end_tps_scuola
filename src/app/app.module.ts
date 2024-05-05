@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { APIModule } from './api/component/main/api.module';
 import { ClasseModule } from './classi/components/main/classi.module';
 import { ProfessoriModule } from './professori/components/main/professori.module';
+import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ import { ProfessoriModule } from './professori/components/main/professori.module
     ClasseModule,
     ProfessoriModule
   ],
-  providers: [],
+  providers: [{provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 2500}}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

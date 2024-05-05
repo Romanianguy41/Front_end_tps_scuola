@@ -5,8 +5,7 @@ import { StudenteService } from '../../service/studenteService';
 import { StudenteInterface } from 'src/app/interfaces/studentInterface';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { AddClassDialogComponent } from '../add-class-dialog/add-class-dialog.component';
-import { ClasseInterface } from 'src/app/interfaces/classeInterface';
-import { DialogConfig } from '@angular/cdk/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-studenti',
@@ -14,7 +13,7 @@ import { DialogConfig } from '@angular/cdk/dialog';
   styleUrls: ['./studenti.component.scss']
 })
 export class StudentiComponent implements OnInit {
-  constructor(private dialog: MatDialog, private studentService: StudenteService) { }
+  constructor(private dialog: MatDialog, private studentService: StudenteService,private snackBar: MatSnackBar) { }
   @ViewChild("table") table!: MatTable<StudenteInterface>;
   studenti!: StudenteInterface[];
   displayedColumns: string[] = ['cognome', 'nome', 'codfiscale', 'email', 'classe', 'action'];
@@ -77,6 +76,8 @@ export class StudentiComponent implements OnInit {
     dialogRef.afterClosed().subscribe((val) => {
       if (val) {
         val.idStudente=data.idStudente
+        if(data.classe)
+          val.classe = data.classe;
         this.studentService.updateStudente(val).subscribe(() => {
           this.getStudenti()
         })

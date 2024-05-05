@@ -8,6 +8,7 @@ import { TableModule } from '../table/table.module';
 import { InfoDialogModule } from '../info-dialog/info-dialog.module';
 import { AddClassDialogModule } from '../add-class-dialog/add-class-dialog.module';
 import { FilterModule } from '../filter/add-dialog-module';
+import { MAT_SNACK_BAR_DEFAULT_OPTIONS, MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
     declarations: [
@@ -25,7 +26,8 @@ import { FilterModule } from '../filter/add-dialog-module';
         AddClassDialogModule,
         TableModule,
         FilterModule,
-        InfoDialogModule
+        InfoDialogModule,
+        MatSnackBarModule
     ]
 })
 export class StudentiModule { }

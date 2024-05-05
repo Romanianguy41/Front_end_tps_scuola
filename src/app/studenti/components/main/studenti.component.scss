@@ -28,3 +28,14 @@ body{
 .content{
     margin: auto;
 }
+
+ 
+::ng-deep  .mat-mdc-snack-bar-container.sucesfull{
+    --mdc-snackbar-container-color:  #2C3333;
+    --mdc-snackbar-supporting-text-color:aliceblue;
+}
+
+::ng-deep  .mat-mdc-snack-bar-container.error{
+    --mdc-snackbar-container-color: #E99287;
+    --mdc-snackbar-supporting-text-color:black
+}
