@@ -9,6 +9,7 @@ import {MatFormFieldModule} from '@angular/material/form-field'
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { ViewProfessorDialogComponent } from './professor-dialog.component';
+import { AddProfessorDialogModule } from '../add-professor/add-professor.module';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { ViewProfessorDialogComponent } from './professor-dialog.component';
     MatSortModule,
     MatInputModule,
     MatFormFieldModule,
-    MatIconModule
+    MatIconModule,
+    AddProfessorDialogModule
     
   ],
   exports: [ViewProfessorDialogComponent],

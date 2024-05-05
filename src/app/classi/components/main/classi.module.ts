@@ -5,8 +5,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { ClassiComponent } from './classi.component';
 import { TableClassiModule } from '../tabella-classi/tabella-classi.module';
-import { ViewProfessorDialogModule } from '../classe-dialog/professor-dialog.module';
 import { AddClassDialogModule } from '../add-dialog/add-dialog-module';
+import { ViewProfessorDialogModule } from '../professor-dialog/professor-dialog.module';
 
 @NgModule({
     declarations: [

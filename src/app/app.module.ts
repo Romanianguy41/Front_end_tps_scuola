@@ -19,7 +19,7 @@ import { ProfessoriModule } from './professori/components/main/professori.module
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,

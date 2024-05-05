@@ -10,6 +10,7 @@ import { InsegnaService } from 'src/app/insegna/service/insegna.service';
 import { ProfessoreInterface } from 'src/app/interfaces/professorInterface';
 import { InsegnaInterface } from 'src/app/interfaces/insegnaInterface';
 import { Professore } from 'src/app/models/professore';
+import { AddProfessorDialogComponent } from '../add-professor/add-professor.component';
 
 @Component({
   selector: 'professor-dialog-class',
@@ -17,11 +18,8 @@ import { Professore } from 'src/app/models/professore';
   styleUrls: ['./professor-dialog.component.scss']
 })
 export class ViewProfessorDialogComponent implements OnInit{
-addProfessor() {
-throw new Error('Method not implemented.');
-}
 
-  displayedColumns: string[] = ["classe","sezione","materia","action"];
+  displayedColumns: string[] = ["cognome","nome","materia","action"];
   dataSource!: MatTableDataSource<InsegnaInterface>;
 
   @Output() addClassEvent = new EventEmitter<ProfessoreInterface>
@@ -31,7 +29,7 @@ throw new Error('Method not implemented.');
 
   constructor(private dialog: MatDialog,
     private insegnaService: InsegnaService,
-    @Inject(MAT_DIALOG_DATA) public data: ProfessoreInterface,
+    @Inject(MAT_DIALOG_DATA) public data: ClasseInterface,
     public dialogRef: MatDialogRef<ViewProfessorDialogComponent>
   ){}
 
@@ -41,62 +39,42 @@ throw new Error('Method not implemented.');
   }
 
   getInsegna(){
-    const searchString = "rifProfessore:"+this.data.idProfessore
+    const searchString = "rifClasse:"+this.data.idClasse
     this.insegnaService.getInsegnaFiltered(searchString).subscribe((value)=>{
-      value.sort((a, b) => {
-        if (a.classe.classe != undefined && b.classe.classe != undefined) {
-          if (a.classe !== b.classe) {
-            return a.classe.classe - b.classe.classe;
-          }
-        }
-        if (a.classe.sezione != undefined && b.classe.sezione != undefined) {
-          return a.classe.sezione.localeCompare(b.classe.sezione);
-        }
-        return -1;
-      });
       this.dataSource = new MatTableDataSource<InsegnaInterface>(value);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
     });
   }
 
-  removeClass(insegna:InsegnaInterface):void{
+  removeProfessor(insegna:InsegnaInterface):void{
     this.insegnaService.deleteInsegna(insegna.idInsegna.toString()).subscribe();
     this.dialogRef.close();
   }
-  /*
-  addClass(){
-    let dialogRef = this.dialog.open(AddClassProfessorDialogComponent);
+  
+  addProfessor(){
+    let dialogRef = this.dialog.open(AddProfessorDialogComponent,{data:this.data});
     dialogRef.afterClosed().subscribe((value:InsegnaInterface)=>{
-      if(value===undefined)
-        return;
-      value.professore=new Professore(this.data.idProfessore);
-      console.log(value);
-      this.insegnaService.createInsegna(value).subscribe(()=>this.getInsegna());
+      this.getInsegna();
     })
-  }*/
+  }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value.trim().toLowerCase();
     this.dataSource.filterPredicate = (data: InsegnaInterface, filter: string) => {
-      const classeAsString = data.classe.classe?.toString().toLowerCase();
-      const sezione = data.classe.sezione?.toLowerCase();
+      const cognome = data.professore.cognome?.toLowerCase();
+      const nome = data.professore.nome?.toLowerCase();
       const materia = data.materia.toLowerCase();
-      if (classeAsString && sezione) {
-        if(classeAsString.includes(filter)){
-          console.log(classeAsString.includes(filter))
-          console.log(classeAsString)
+      if (cognome && nome) {
+        if(cognome.includes(filter)){
           return true
         }
-        if(sezione.includes(filter) ||  materia.includes(filter))
+        if(nome.includes(filter) ||  materia.includes(filter))
           return true
       }
       return false;
     };
     this.dataSource.filter = filterValue;
   }
-  
-  
-
 
 }

@@ -9,7 +9,7 @@ const routes: Routes = [
   {path:'api', component:APIComponent},
   {path:'studenti',component:StudentiComponent},
   {path:'professori', component:ProfessoriComponent},
-  {path:'classi', component:ClassiComponent}
+  {path:'classi', component:ClassiComponent},
   
 ];
 

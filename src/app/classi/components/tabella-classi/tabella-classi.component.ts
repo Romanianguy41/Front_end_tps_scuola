@@ -1,43 +1,56 @@
-import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ClasseInterface } from 'src/app/interfaces/classeInterface';
 import { ProfessoreInterface } from 'src/app/interfaces/professorInterface';
+import { ClasseService } from '../../service/classe.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-tabella-classi',
   templateUrl: './tabella-classi.component.html',
   styleUrls: ['./tabella-classi.component.scss']
 })
-export class TabellaClassiComponent {
+export class TabellaClassiComponent implements OnChanges {
   @Input()displayedColumns!: string[];
   @Input()dataSource!: MatTableDataSource<ClasseInterface>;
+  @Input() updateTable!: BehaviorSubject<string>;
 
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   
   @Output() deleteEvent = new EventEmitter<string>();
   @Output() updateEvent = new EventEmitter<ClasseInterface>();
-  @Output() viewClassEvent = new EventEmitter<ClasseInterface>();
+  @Output() viewProfessorEvent = new EventEmitter<ClasseInterface>();
 
  
-  constructor(private dialog: MatDialog){
+  constructor(private dialog: MatDialog, classeService:ClasseService){
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if(changes['dataSource'] && !changes['dataSource'].firstChange) {
+      this.addSpecs();
+    }
   }
 
   ngAfterViewInit() {
     if (this.dataSource && this.sort && this.paginator) {
+      console.log(this.dataSource.sort)
+      console.log(this.dataSource.paginator)
       this.addSpecs();
     } else {
       setTimeout(() => {
-        this.ngAfterViewInit(); // Ricorsivamente richiama ngAfterViewInit() finché le istanze non sono inizializzate
-      }, 100); // Attendere un breve periodo e ricontrollare
+        this.ngAfterViewInit(); 
+      }, 100); 
     }
   }
   addSpecs(){
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+    console.log(this.dataSource.sort)
+    console.log(this.dataSource.paginator)
   }
 
   deleteClasse(classe:ClasseInterface): void {
@@ -71,8 +84,8 @@ export class TabellaClassiComponent {
     }
   }
 
-  addProfessore(classe:ClasseInterface) {
-    this.viewClassEvent.next(classe);
+  viewProfessore(classe:ClasseInterface) {
+    this.viewProfessorEvent.next(classe);
   }
 
 

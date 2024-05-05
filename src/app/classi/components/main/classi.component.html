@@ -1,4 +1,3 @@
-<p>classi works!</p>
 <div class="title"><h1>Gestione Classi</h1></div>
 <ng-container class="container">
     <div class="buttonContainer">
@@ -7,8 +6,10 @@
     <div class="tabella" >
         <app-tabella-classi #table [displayedColumns]="displayedColumns" 
         [dataSource]="dataSource"
+        [updateTable]="updateTable"
         (deleteEvent)="deleteClass($event)"
-        (updateEvent)="openEditDialog($event)" >
+        (updateEvent)="openEditDialog($event)"
+        (viewProfessorEvent)="viewProfessors($event)">
 </app-tabella-classi>
     </div>
     

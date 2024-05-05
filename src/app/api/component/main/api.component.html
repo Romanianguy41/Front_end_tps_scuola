@@ -176,6 +176,36 @@
             </mat-expansion-panel>
             </mat-accordion>
         </div>
+
+        <div class="dropDownMenu">
+            <mat-accordion class="dropDownMenu">
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                    <span class="methodPUT">PUT </span> webapi/scuola/studente/allClasse/{{'{idClasse}'}}
+                </mat-panel-title>
+                <mat-panel-description>
+                    Remove all class occurance from student
+                </mat-panel-description>
+                </mat-expansion-panel-header>
+                <hr>
+                <p>This API request will remove the class at all the students that match the rifClasse</p>
+                <hr>
+                <div><p class="underline">Parameters:</p></div>
+                <div>Path params: <span >idClasse</span>
+                
+                </div>
+                <div class="description">   
+                    <p>Description</p>
+                </div><div style="margin-bottom: 10px;">
+                    <span class="tab">To use this API you need to pass in the URL the idClasse in this way you can remove the class from all the students that have that class</span>
+                </div>
+                <hr>
+                <div><p class="underline">Body:</p></div>
+                <div>No body</div>
+            </mat-expansion-panel>
+            </mat-accordion>
+        </div>
         <div class="dropDownMenu">
             <mat-accordion class="dropDownMenu">
             <mat-expansion-panel>
@@ -691,28 +721,29 @@
         </mat-expansion-panel>
         </mat-accordion>
     </div>
+
     <div class="dropDownMenu">
         <mat-accordion class="dropDownMenu">
         <mat-expansion-panel>
             <mat-expansion-panel-header>
             <mat-panel-title>
-                <span class="methodDELETE">DELETE </span> webapi/scuola/materia/{{'{idMateria}'}}
+                <span class="methodDELETE">DELETE </span> webapi/scuola/materia/{{'{idInsegna}'}}
             </mat-panel-title>
             <mat-panel-description>
-                Delete a professor
+                Delete a subject by class reference
             </mat-panel-description>
             </mat-expansion-panel-header>
             <hr>
-            <p>This API request removes from the database the subject that match the idMateria</p>
+            <p>This API request removes from the database the subject that match idInsegna</p>
             <hr>
             <div><p class="underline">Parameters:</p></div>
-            <div>Path params: <span >idMateria</span>
+            <div>Path params: <span >idInsegna</span>
             
             </div>
             <div class="description">   
                 <p>Description</p>
             </div><div style="margin-bottom: 10px;">
-                <span class="tab">To use this API you need to pass in the URL the idMateria in this way you can delete the materia</span>
+                <span class="tab">To use this API you need to pass in the URL the idInsegna in this way you can delete the relate subjects</span>
             </div>
             <hr>
             <div><p class="underline">Body:</p></div>
@@ -720,6 +751,68 @@
         </mat-expansion-panel>
         </mat-accordion>
     </div>
+
+    <div class="dropDownMenu">
+        <mat-accordion class="dropDownMenu">
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+            <mat-panel-title>
+                <span class="methodDELETE">DELETE </span> webapi/scuola/materia/classe/{{'{idClasse}'}}
+            </mat-panel-title>
+            <mat-panel-description>
+                Delete a subject by class reference
+            </mat-panel-description>
+            </mat-expansion-panel-header>
+            <hr>
+            <p>This API request removes from the database the subject that have reference the idClasse as idClasse</p>
+            <hr>
+            <div><p class="underline">Parameters:</p></div>
+            <div>Path params: <span >idClasse</span>
+            
+            </div>
+            <div class="description">   
+                <p>Description</p>
+            </div><div style="margin-bottom: 10px;">
+                <span class="tab">To use this API you need to pass in the URL the idProfessore in this way you can delete the subjects that have idClasse as rifClasse</span>
+            </div>
+            <hr>
+            <div><p class="underline">Body:</p></div>
+            <div>No body</div>
+        </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+
+
+    <div class="dropDownMenu">
+        <mat-accordion class="dropDownMenu">
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+            <mat-panel-title>
+                <span class="methodDELETE">DELETE </span> webapi/scuola/materia/professore/{{'{idProfessore}'}}
+            </mat-panel-title>
+            <mat-panel-description>
+                Delete a subject by professor reference
+            </mat-panel-description>
+            </mat-expansion-panel-header>
+            <hr>
+            <p>This API request removes from the database the subject that have reference the idProfessore as rifProfessore</p>
+            <hr>
+            <div><p class="underline">Parameters:</p></div>
+            <div>Path params: <span >idProfessore</span>
+            
+            </div>
+            <div class="description">   
+                <p>Description</p>
+            </div><div style="margin-bottom: 10px;">
+                <span class="tab">To use this API you need to pass in the URL the idProfessore in this way you can delete the subjects that have idProfessore as rifProfessor</span>
+            </div>
+            <hr>
+            <div><p class="underline">Body:</p></div>
+            <div>No body</div>
+        </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+    
     </mat-expansion-panel>
  </mat-accordion>
 </div>

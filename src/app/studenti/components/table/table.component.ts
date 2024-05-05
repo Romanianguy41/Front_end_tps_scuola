@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
@@ -25,8 +25,16 @@ export class TableComponent implements AfterViewInit{
   constructor(private dialog: MatDialog){
   }
 
+  ngOnChanges(changes: SimpleChanges) {
+    if(changes['dataSource'] && !changes['dataSource'].firstChange) {
+      this.addSpecs();
+    }
+  }
+
   ngAfterViewInit() {
     if (this.dataSource && this.sort && this.paginator) {
+      console.log(this.dataSource.sort)
+      console.log(this.dataSource.paginator)
       this.addSpecs();
     } else {
       setTimeout(() => {

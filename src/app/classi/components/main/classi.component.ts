@@ -4,6 +4,8 @@ import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { ClasseInterface } from 'src/app/interfaces/classeInterface';
 import { ClasseService } from '../../service/classe.service';
 import { AddClassDialogComponent } from '../add-dialog/add-dialog.component';
+import { BehaviorSubject } from 'rxjs';
+import { ViewProfessorDialogComponent } from '../professor-dialog/professor-dialog.component';
 
 @Component({
   selector: 'app-classi',
@@ -13,6 +15,7 @@ import { AddClassDialogComponent } from '../add-dialog/add-dialog.component';
 export class ClassiComponent {
   constructor(private dialog: MatDialog, private classeService: ClasseService) { }
   @ViewChild("table") table!: MatTable<ClasseInterface>;
+  updateTable = new BehaviorSubject<string>('');
   classi!: ClasseInterface[];
   displayedColumns: string[] = ['classe', 'sezione', 'action'];
   dataSource!: MatTableDataSource<ClasseInterface>;
@@ -29,6 +32,7 @@ export class ClassiComponent {
       next: (res) => {
         console.log(res)
         this.dataSource = new MatTableDataSource<ClasseInterface>(res);
+        this.updateTable.next('');
       },
       error: console.log,
 
@@ -37,6 +41,7 @@ export class ClassiComponent {
       this.classeService.getClassiFiltered(this.searchString).subscribe({
         next: (value) => {
           this.dataSource = new MatTableDataSource<ClasseInterface>(value);
+          this.updateTable.next('');
         },
         error: console.log,
   
@@ -75,6 +80,10 @@ export class ClassiComponent {
       this.getClassi()
     });
 
+  }
+
+  viewProfessors(classe:ClasseInterface){
+    let dialogRef = this.dialog.open(ViewProfessorDialogComponent,{data:classe});
   }
 
 /*
