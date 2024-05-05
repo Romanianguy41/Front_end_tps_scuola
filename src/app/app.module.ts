@@ -17,6 +17,8 @@ import { APIModule } from './api/component/main/api.module';
 import { ClasseModule } from './classi/components/main/classi.module';
 import { ProfessoriModule } from './professori/components/main/professori.module';
 import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
+import { HomeComponent } from './home/home.component';
+import { HomeModule } from './home/home.module';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
     MatSidenavModule,
     APIModule,
     ClasseModule,
-    ProfessoriModule
+    ProfessoriModule,
+    HomeModule
   ],
   providers: [{provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 2500}}],
   bootstrap: [AppComponent]
