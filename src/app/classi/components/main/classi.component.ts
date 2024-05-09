@@ -82,26 +82,4 @@ export class ClassiComponent {
   viewProfessors(classe:ClasseInterface){
     let dialogRef = this.dialog.open(ViewProfessorDialogComponent,{data:classe});
   }
-
-/*
-  openDialog() {
-    let dialogRef = this.dialog.open(AddDialogComponent);
-    dialogRef.afterClosed().subscribe((val) => {
-      if (val) {
-        this.professoreService.createProfessore(val).subscribe(() => {
-          this.getProfessori()
-        })
-
-      }
-    });
-  }
-
- 
-
-
- 
-  viewClass(professoreInterface:ProfessoreInterface){
-    let dialogRef = this.dialog.open(ClasseDialogComponent, { data:professoreInterface });
-  }
-*/
 }

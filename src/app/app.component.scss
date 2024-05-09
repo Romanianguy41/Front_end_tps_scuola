@@ -4,16 +4,16 @@
     top: 0;
     left: 0;
     right: 0;
-    z-index: 2; /* Assicura che il toolbar sia sopra il sidenav */
+    z-index: 2; 
   }
   
   .sidenavContainer {
     position: fixed;
-    top: 56px; /* Altezza del toolbar */
+    top: 56px; 
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #2C3333; /* Colore di sfondo della sidebar */
+    background-color: #2C3333; 
   }
   
   .sidenav {
@@ -26,14 +26,13 @@
   }
   
   .toolbar-margin {
-    height: 56px; /* Altezza del toolbar */
+    height: 56px; 
   }
   
   .content {
     padding: 20px;
   }
   
-  /* Impostazioni per il backdrop */
   ::ng-deep .mat-drawer-backdrop.mat-drawer-shown {
     background-color: rgba(23, 41, 41, 0.6);
   }
